@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="32" height="20" tilewidth="16" tileheight="16" nextobjectid="16">
+ <tileset firstgid="1" name="temp" tilewidth="16" tileheight="16" tilecount="8" columns="8">
+  <image source="../sprites/temp.png" width="128" height="16"/>
+ </tileset>
+ <layer name="platforms" width="32" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFMMCChAfC7IG2fzADFhLxULR/oON/1H5UNZS4hxyziLWPnDQ3FMJ/FFCnTKFnuTgKKAOk1ivUxgCMiAIJ
+  </data>
+ </layer>
+ <objectgroup name="collision">
+  <properties>
+   <property name="collision" type="bool" value="true"/>
+  </properties>
+  <object id="1" x="48" y="112" width="48" height="96"/>
+  <object id="3" x="48" y="32" width="48" height="32"/>
+  <object id="4" x="160" y="80" width="192" height="32"/>
+  <object id="7" x="112" y="160" width="48" height="16"/>
+  <object id="8" x="64" y="240" width="112" height="16"/>
+  <object id="9" x="208" y="176" width="96" height="16"/>
+  <object id="10" x="352" y="160" width="48" height="16"/>
+  <object id="11" x="416" y="32" width="48" height="32"/>
+  <object id="12" x="416" y="112" width="48" height="96"/>
+  <object id="13" x="336" y="240" width="112" height="16"/>
+  <object id="15" x="0" y="304" width="512" height="16"/>
+ </objectgroup>
+</map>

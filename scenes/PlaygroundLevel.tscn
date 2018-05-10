@@ -1,0 +1,186 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://sprites/temp.png" type="Texture" id=2]
+[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Wrap.gd" type="Script" id=5]
+
+[sub_resource type="Shader" id=3]
+
+code = "shader_type canvas_item;
+
+void fragment(){
+	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR = col; //vec4(1.0 - col.r, 1.0 - col.g, 1.0 - col.b, 1.0);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+
+render_priority = 0
+shader = SubResource( 3 )
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 37.243, 10.5569 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 292.354 )
+
+[node name="PlaygroundLevel" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+preset_player = true
+
+[node name="background" type="Sprite" parent="." index="0"]
+
+modulate = Color( 0.121094, 0.121094, 0.121094, 1 )
+position = Vector2( 507.688, 311.743 )
+scale = Vector2( 69.4637, 40.6704 )
+texture = ExtResource( 2 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="playground" parent="." index="1" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+position = Vector2( 0, -40.8276 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="platforms" parent="playground" index="0"]
+
+modulate = Color( 0.52383, 0.65625, 0.364014, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="Player1" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 424.311, 74.0656 )
+scale = Vector2( 1.3, 1.3 )
+_sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
+
+[node name="Player2" parent="." index="3" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( 570.017, 96.7302 )
+scale = Vector2( 1.3, 1.3 )
+player_num = 2
+
+[node name="ColorRect" type="ColorRect" parent="." index="4"]
+
+material = SubResource( 4 )
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -37.0
+margin_top = -16.0
+margin_right = 1064.0
+margin_bottom = 627.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 1, 1, 1, 1 )
+_sections_unfolded = [ "Material" ]
+
+[node name="ExtraFloor" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ExtraFloor" index="0"]
+
+editor/display_folded = true
+position = Vector2( -36.7749, 577.695 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraFloor/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="ExtraFloor" index="1"]
+
+editor/display_folded = true
+position = Vector2( 1060.73, 577.695 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExtraFloor/StaticBody2D2" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Wrap" type="Node2D" parent="." index="6"]
+
+script = ExtResource( 5 )
+offset = 20
+
+[node name="LeftWrap" type="Area2D" parent="Wrap" index="0"]
+
+editor/display_folded = true
+position = Vector2( -28.3423, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/LeftWrap" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="RightWrap" type="Area2D" parent="Wrap" index="1"]
+
+editor/display_folded = true
+position = Vector2( 1048.95, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/RightWrap" index="0"]
+
+shape = SubResource( 2 )
+
+[connection signal="area_entered" from="Wrap/LeftWrap" to="Wrap" method="_on_LeftWrap_area_entered"]
+
+[connection signal="area_entered" from="Wrap/RightWrap" to="Wrap" method="_on_RightWrap_area_entered"]
+
+
+[editable path="playground"]
