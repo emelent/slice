@@ -22,7 +22,7 @@ tracks/0/keys = {
 "values": [ 8, 9 ]
 }
 
-[node name="JumpEffect" type="Sprite"]
+[node name="JumpEffect" type="Sprite" index="0"]
 
 position = Vector2( -0.791134, 0 )
 scale = Vector2( 2, 2 )

@@ -15,6 +15,8 @@ const OUTLINE_COLORS = {
 
 var SlashAttack = preload('res://scenes/SlashAttack.tscn')
 var JumpEffect = preload('res://scenes/JumpEffect.tscn')
+var HurtEffect = preload('res://scenes/AnimatedEffect.tscn')
+
 var jumping = false
 var jump_count = 0
 var attacking = false
@@ -24,16 +26,16 @@ onready var JumpPoint = $JumpPoint
 
 func _ready():
 	character_name = 'p' + str(player_num) + '_'
-	self.modulate = Color(OUTLINE_COLORS[character_name])
+#	self.modulate = Color(OUTLINE_COLORS[character_name])
 
 
 func _input(event):
-	if Input.is_action_just_pressed(character_name + 'up') and canJump():
+	if Input.is_action_just_pressed(character_name + 'a') and canJump():
 		anim_play('idle')
 		jumping = true
 		jump_count += 1
 
-	if Input.is_action_just_pressed(character_name + 'a') and not attacking:
+	if Input.is_action_just_pressed(character_name + 'b') and not attacking:
 		slash_attack()
 
 func _process(dt):
@@ -99,3 +101,7 @@ func __on_hitbox_entered(area):
 	if not area.is_in_group('attacks'): return
 
 	print(character_name + ' hurt by ' + area.name)
+	var effect = HurtEffect.instance()
+	effect.anim_effect = effect.RED_CLOUD
+	effect.global_position = global_position
+	get_parent().add_child(effect)

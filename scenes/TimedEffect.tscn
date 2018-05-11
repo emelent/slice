@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Splatter.gd" type="Script" id=1]
+
+[node name="TimedEffect" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Z Index" ]
+duration = 1.0
+Effect = null
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+
