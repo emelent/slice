@@ -4,11 +4,16 @@ extends Control
 # var a = 2
 # var b = "textvar"
 
+onready var p1_score = $P1/score
+onready var p2_score = $P2/score
+onready var p3_score = $P3/score
+
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
 	pass
 
 func update_score(stats):
-	print('here we are')
-	print(stats)
+	p1_score.text =  str(stats['p1_']['kills']) + ' / ' + str(stats['p1_']['deaths'])
+	p2_score.text =  str(stats['p2_']['kills']) + ' / ' + str(stats['p2_']['deaths'])
+	p3_score.text =  str(stats['p3_']['kills']) + ' / ' + str(stats['p3_']['deaths'])
