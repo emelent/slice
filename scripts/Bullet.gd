@@ -10,8 +10,9 @@ var direction = Vector2()
 var offset = 50
 var wrapCount = 0
 
+
 func _ready():
-	get_tree().current_scene.AudioManager.play(spawn_sound)
+	AudioManager.play(spawn_sound)
 
 func _physics_process(delta):
 	position += direction.normalized() * speed * delta
@@ -19,7 +20,7 @@ func _physics_process(delta):
 func bullet_hit():
 	direction = Vector2(0, 0)
 	$Animator.play('bullet_hit')
-	get_tree().current_scene.AudioManager.play(hit_sound)
+	AudioManager.play(hit_sound)
 
 func __on_bullet_area_entered(area):
 	if area.is_in_group('bullets'): return

@@ -61,7 +61,7 @@ func _physics_process(dt):
 		jump_count = 0
 		if airborne:
 			airborne = false
-			level.AudioManager.play('land')
+			AudioManager.play('land')
 	else:
 		airborne = true
 
@@ -96,7 +96,7 @@ func canJump():
 
 func jump():
 	if not jumping: return
-	level.AudioManager.play('jump')
+	AudioManager.play('jump')
 	anim_play('jump')
 	motion.y = -jump_speed
 	jumping = false
@@ -121,7 +121,6 @@ func slash_attack():
 	var slash = SlashAttack.instance()
 	slash.attacker = self
 	SlashPoint.add_child(slash)
-#	level.AudioManager.play(slash.spawn_sound)
 
 func shoot_attack():
 	anim_play('shoot')
@@ -136,7 +135,7 @@ func shoot_attack():
 func __on_kill():
 	HitBoxShape.disabled = true
 	ColShape.disabled = true
-	level.AudioManager.play(death_sound)
+	AudioManager.play(death_sound)
 
 
 func _on_animation_finished(anim_name):
