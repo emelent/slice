@@ -1,20 +1,20 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Wrap.gd" type="Script" id=2]
-[ext_resource path="res://sprites/temp.png" type="Texture" id=3]
-[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 717.97 )
+[ext_resource path="res://sprites/temp.png" type="Texture" id=2]
+[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/Wrap.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 37.243, 10.5569 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 717.97 )
 
 [node name="PlaygroundLevel" type="Node2D" index="0"]
 
@@ -22,62 +22,13 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 preset_player = false
 
-[node name="Wrap" type="Node2D" parent="." index="0"]
-
-editor/display_folded = true
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
-offset = 20
-
-[node name="LeftWrap" type="Area2D" parent="Wrap" index="0" groups=[
-"wrappers",
-]]
-
-position = Vector2( -28.3423, 276.571 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/LeftWrap" index="0"]
-
-shape = SubResource( 4 )
-
-[node name="RightWrap" type="Area2D" parent="Wrap" index="1" groups=[
-"wrappers",
-]]
-
-position = Vector2( 1048.95, 276.571 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/RightWrap" index="0"]
-
-shape = SubResource( 4 )
-
-[node name="background" type="Sprite" parent="." index="1"]
+[node name="background" type="Sprite" parent="." index="0"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 507.688, 311.743 )
 scale = Vector2( 69.4637, 40.6704 )
 z_index = -2
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 hframes = 8
 frame = 3
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
@@ -85,7 +36,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="playground" parent="." index="2" instance=ExtResource( 4 )]
+[node name="playground" parent="." index="1" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 position = Vector2( 0, -40.8276 )
@@ -97,7 +48,7 @@ _sections_unfolded = [ "Material", "Transform" ]
 modulate = Color( 0.941406, 0.540803, 0.0257416, 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="ExtraFloor" type="Node2D" parent="." index="3"]
+[node name="ExtraFloor" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
 __meta__ = {
@@ -142,7 +93,7 @@ __meta__ = {
 
 shape = SubResource( 1 )
 
-[node name="SpawnPoints" type="Node2D" parent="." index="4"]
+[node name="SpawnPoints" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
 __meta__ = {
@@ -197,30 +148,80 @@ position = Vector2( 987.057, 49.6592 )
 
 position = Vector2( 38.5336, 49.6592 )
 
-[node name="Players" type="Node2D" parent="." index="5"]
+[node name="Players" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 0, -40.8276 )
 scale = Vector2( 2, 2 )
 
-[node name="Player1" parent="Players" index="0" instance=ExtResource( 5 )]
+[node name="Player1" parent="Players" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 196.239, 68.1593 )
 scale = Vector2( 0.65, 0.65 )
 _sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
 
-[node name="Player2" parent="Players" index="1" instance=ExtResource( 5 )]
+[node name="Player2" parent="Players" index="1" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 285.009, 68.7789 )
 scale = Vector2( 0.65, 0.65 )
 player_num = 2
 
-[node name="Player3" parent="Players" index="2" instance=ExtResource( 5 )]
+[node name="Player3" parent="Players" index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 318.169, 68.0077 )
 scale = Vector2( 0.65, 0.65 )
 player_num = 3
+
+[node name="Wrap" type="Node2D" parent="." index="5"]
+
+editor/display_folded = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+offset = 20
+
+[node name="LeftWrap" type="Area2D" parent="Wrap" index="0" groups=[
+"wrappers",
+]]
+
+position = Vector2( -28.3423, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/LeftWrap" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="RightWrap" type="Area2D" parent="Wrap" index="1" groups=[
+"wrappers",
+]]
+
+position = Vector2( 1048.95, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/RightWrap" index="0"]
+
+shape = SubResource( 4 )
 
 [connection signal="area_entered" from="Wrap/LeftWrap" to="Wrap" method="_on_LeftWrap_area_entered"]
 

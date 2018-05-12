@@ -9,7 +9,7 @@ func _on_LeftWrap_area_entered(area):
 	var node = area
 	if node.is_in_group('hitbox'):
 		node = area.get_parent()
-	node.position.x= RightWrap.position.x - offset
+	node.global_position.x= RightWrap.global_position.x - offset
 
 
 
@@ -17,4 +17,4 @@ func _on_RightWrap_area_entered(area):
 	var node = area
 	if node.is_in_group('hitbox'):
 		node = area.get_parent()
-	node.position.x= LeftWrap.position.x + offset
+	node.global_position.x= LeftWrap.global_position.x + offset
