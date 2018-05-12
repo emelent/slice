@@ -58,7 +58,17 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="pop" type="AudioStreamPlayer2D" parent="." index="4"]
+[node name="bullet_rebound" type="AudioStreamPlayer2D" parent="." index="4"]
+
+stream = ExtResource( 2 )
+volume_db = -15.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "LowPitch"
+area_mask = 1
+
+[node name="pop" type="AudioStreamPlayer2D" parent="." index="5"]
 
 stream = ExtResource( 6 )
 volume_db = -10.0
@@ -68,7 +78,7 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="jump" type="AudioStreamPlayer2D" parent="." index="5"]
+[node name="jump" type="AudioStreamPlayer2D" parent="." index="6"]
 
 stream = ExtResource( 2 )
 volume_db = -20.0
@@ -78,7 +88,7 @@ attenuation = 1.0
 bus = "LowPitch"
 area_mask = 1
 
-[node name="land" type="AudioStreamPlayer2D" parent="." index="6"]
+[node name="land" type="AudioStreamPlayer2D" parent="." index="7"]
 
 stream = SubResource( 1 )
 volume_db = -30.0
@@ -88,7 +98,7 @@ attenuation = 1.0
 bus = "New Bus"
 area_mask = 1
 
-[node name="slash_hit" type="AudioStreamPlayer2D" parent="." index="7"]
+[node name="slash_hit" type="AudioStreamPlayer2D" parent="." index="8"]
 
 stream = ExtResource( 8 )
 volume_db = -10.0

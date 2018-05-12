@@ -4,6 +4,7 @@ export var speed = 300
 export(int) var maxWraps = 1
 export var spawn_sound = 'bullet_spawn'
 export var hit_sound = 'bullet_hit'
+export var rebound_sound = 'bullet_rebound'
 
 var attacker
 var direction = Vector2()
@@ -26,6 +27,7 @@ func __on_bullet_area_entered(area):
 	if area.is_in_group('bullets'): return
 	if area.is_in_group('slashes'):
 		direction *= -1
+		AudioManager.play(rebound_sound)
 		return
 
 	if area.is_in_group('wrappers'):

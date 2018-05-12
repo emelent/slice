@@ -30,6 +30,7 @@ speed = 400
 maxWraps = 1
 spawn_sound = "bullet_spawn"
 hit_sound = "bullet_hit"
+rebound_sound = "bullet_rebound"
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 
