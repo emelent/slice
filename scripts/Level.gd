@@ -10,6 +10,7 @@ var num_spawn_points = 0
 var stats = {
 }
 
+signal score_updated
 func _ready():
 	num_spawn_points = SpawnPoints.get_child_count()
 	rand_seed(OS.get_unix_time())
@@ -42,4 +43,12 @@ func kill_player(player):
 	player.set_spawn_location(get_random_spawn_point())
 	player.kill()
 
+	# update score
+	var killer_name = player.killer.character_name
+	if player.killer == player:
+		stats[killer_name]['kills'] -= 1
+	else:
+		stats[killer_name]['kills'] += 1
+	stats[player.character_name]['deaths'] += 1
+	emit_signal('score_updated', stats)
 
