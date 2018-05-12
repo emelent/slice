@@ -6,7 +6,11 @@ enum AnimationEffect{
 	STAR_CLOUD,
 	BUBBLES,
 	UNDERWATER_EXPLOSION,
-	STAR_COLLECT
+	STAR_COLLECT,
+	BULLET_HIT,
+	JUMPING_DUST,
+	LANDING_DUST,
+	TELEPORT
 }
 export (AnimationEffect) var anim_effect = DUST_CLOUD;
 
@@ -17,7 +21,11 @@ const ANIMATION_NAMES={
 	STAR_CLOUD: 'star_cloud',
 	BUBBLES: 'bubbles',
 	UNDERWATER_EXPLOSION: 'underwater_explosion',
-	STAR_COLLECT: 'star_collect'
+	STAR_COLLECT: 'star_collect',
+	BULLET_HIT: 'bullet_hit',
+	JUMPING_DUST: 'jumping_dust',
+	LANDING_DUST: 'landing_dust',
+	TELEPORT: 'teleport'
 }
 
 func _ready():

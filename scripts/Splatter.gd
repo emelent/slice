@@ -1,12 +1,10 @@
 extends Node2D
 
-export(float, 0.1, 10) var duration =  1.0
-export(PackedScene) var Effect
 
 func _ready():
-	$Timer.wait_time = duration
-	if Effect:
-		add_child(Effect.instance())
+	$Particles2D.emitting = true
+	$Sprite.frame = randi() % ($Sprite.vframes * $Sprite.hframes)
 
-func _on_Timer_timeout():
+
+func __on_Animator_animation_finished(anim_name):
 	queue_free()

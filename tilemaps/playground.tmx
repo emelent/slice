@@ -3,9 +3,12 @@
  <tileset firstgid="1" name="temp" tilewidth="16" tileheight="16" tilecount="8" columns="8">
   <image source="../sprites/temp.png" width="128" height="16"/>
  </tileset>
+ <tileset firstgid="9" name="tiles" tilewidth="16" tileheight="16" tilecount="15" columns="15">
+  <image source="../sprites/tiles.png" width="240" height="16"/>
+ </tileset>
  <layer name="platforms" width="32" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFMMCChAfC7IG2fzADFhLxULR/oON/1H5UNZS4hxyziLWPnDQ3FMJ/FFCnTKFnuTgKKAOk1ivUxgCMiAIJ
+   eJxjYBgFMCAAxIJALDRAZosBsSgQi9DAflqaTQ8ACz9iMC3iDxZ+xGByw3ig0x8/EPMBsTAN7CfG7MFmPxcQiwMxNxn2oeulpv9hZiNjQm4kxuzR8mfgAba4JTUNUsOMUUAfQGydRisMAFniCQo=
   </data>
  </layer>
  <objectgroup name="collision">

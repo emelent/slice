@@ -10,7 +10,7 @@ export var gravity_on = true
 export var respawnable = false
 export var gravity = 900
 export var movement_speed = 200
-export (float, 0, 2) var respawn_delay = 0.8
+export (float, 0, 20) var respawn_delay = 0.8
 export var spawn_location = Vector2(0, 0)
 export var character_name = ''
 export var knockback_duration = 0.1
@@ -22,7 +22,7 @@ var moving_left  = false
 var moving_right = false
 var hurting = false
 var gravity_multiplier = 1
-
+var dead = false
 
 onready var Animator = $Animator
 onready var Pivot = $Pivot
@@ -75,7 +75,8 @@ func __check_for_respawn(dt):
 		respawn()
 		respawn_time = -1
 
-
+func __on_kill():
+	pass
 
 # set the spawn location
 func set_spawn_location(location):
@@ -83,6 +84,9 @@ func set_spawn_location(location):
 
 # kill the character
 func kill():
+	dead = true
+	visible = false
+	__on_kill()
 	if not respawnable:
 		queue_free()
 	else:
@@ -94,8 +98,10 @@ func delayed_respawn():
 
 # respawn the player immediately
 func respawn():
+	dead = false
 	gravity_on = true
-	position = spawn_location
+	visible = true
+	global_position = spawn_location
 	reset()
 
 # change current animation

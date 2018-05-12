@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-f534b8a02ffb80eefc72936296201445.stex"
+path="res://.import/back-walls.png-888d76a4ff80500a0a6765a0c3fa5371.stex"
 
 [deps]
 
-source_file="res://sprites/player.png"
-source_md5="c899fc34a0aab64fa37397e95d8662b0"
+source_file="res://sprites/back-walls.png"
+source_md5="83699ef69128fe11b6730af2f82da829"
 
-dest_files=[ "res://.import/player.png-f534b8a02ffb80eefc72936296201445.stex" ]
-dest_md5="9a8a4d2da768450ce2db53ab87adf3ba"
+dest_files=[ "res://.import/back-walls.png-888d76a4ff80500a0a6765a0c3fa5371.stex" ]
+dest_md5="08cf7755942eb6710395fe91e92088e6"
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
-flags/mipmaps=false
+flags/filter=true
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

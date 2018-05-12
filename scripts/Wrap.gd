@@ -13,7 +13,6 @@ func _on_LeftWrap_area_entered(area):
 
 
 
-
 func _on_RightWrap_area_entered(area):
 	var node = area
 	if node.is_in_group('hitbox'):

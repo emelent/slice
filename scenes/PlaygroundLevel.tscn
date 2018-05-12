@@ -1,57 +1,83 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://sprites/temp.png" type="Texture" id=2]
-[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://sprites/displacement.png" type="Texture" id=5]
-[ext_resource path="res://scripts/Wrap.gd" type="Script" id=6]
+[ext_resource path="res://scripts/Wrap.gd" type="Script" id=2]
+[ext_resource path="res://sprites/temp.png" type="Texture" id=3]
+[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 717.97 )
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 37.243, 10.5569 )
 
-[sub_resource type="Shader" id=2]
-
-code = "shader_type canvas_item;
-
-uniform sampler2D displacement: hint_albedo;
-uniform float magnitude: hint_range(0.0, 1.0);
-
-void fragment(){
-	vec2 disp = texture(displacement, SCREEN_UV).xy;
-//	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(0.0, sin(FRAGCOORD.x / 50.0 + TIME)/100.0));
-	disp = ((disp * 2.0) - vec2(1.0)) * magnitude;
-	vec4 col = texture(SCREEN_TEXTURE, SCREEN_UV + disp);
-	COLOR = col;
-}"
-
-[sub_resource type="ShaderMaterial" id=3]
-
-render_priority = 0
-shader = SubResource( 2 )
-shader_param/magnitude = 0.044
-shader_param/displacement = ExtResource( 5 )
-_sections_unfolded = [ "shader_param" ]
-
-[sub_resource type="RectangleShape2D" id=4]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 292.354 )
-
 [node name="PlaygroundLevel" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-preset_player = true
+_sections_unfolded = [ "Visibility" ]
+preset_player = false
 
-[node name="background" type="Sprite" parent="." index="0"]
+[node name="Wrap" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+offset = 20
+
+[node name="LeftWrap" type="Area2D" parent="Wrap" index="0" groups=[
+"wrappers",
+]]
+
+position = Vector2( -28.3423, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/LeftWrap" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="RightWrap" type="Area2D" parent="Wrap" index="1" groups=[
+"wrappers",
+]]
+
+position = Vector2( 1048.95, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/RightWrap" index="0"]
+
+shape = SubResource( 4 )
+
+[node name="background" type="Sprite" parent="." index="1"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 507.688, 311.743 )
 scale = Vector2( 69.4637, 40.6704 )
 z_index = -2
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 8
 frame = 3
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
@@ -59,7 +85,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="playground" parent="." index="1" instance=ExtResource( 3 )]
+[node name="playground" parent="." index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 0, -40.8276 )
@@ -68,25 +94,15 @@ _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="platforms" parent="playground" index="0"]
 
-modulate = Color( 0.52383, 0.65625, 0.364014, 1 )
+modulate = Color( 0.941406, 0.540803, 0.0257416, 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="Player1" parent="." index="2" instance=ExtResource( 4 )]
-
-position = Vector2( 424.311, 74.0656 )
-scale = Vector2( 1.3, 1.3 )
-_sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
-
-[node name="Player2" parent="." index="3" instance=ExtResource( 4 )]
+[node name="ExtraFloor" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
-position = Vector2( 570.017, 96.7302 )
-scale = Vector2( 1.3, 1.3 )
-player_num = 2
-
-[node name="ExtraFloor" type="Node2D" parent="." index="4"]
-
-editor/display_folded = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ExtraFloor" index="0"]
 
@@ -126,69 +142,85 @@ __meta__ = {
 
 shape = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="." index="5"]
-
-visible = false
-material = SubResource( 3 )
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -10.0
-margin_top = 557.0
-margin_right = 1022.0
-margin_bottom = 619.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
-_sections_unfolded = [ "Grow Direction", "Material", "Rect" ]
-
-[node name="Wrap" type="Node2D" parent="." index="6"]
-
-script = ExtResource( 6 )
-offset = 20
-
-[node name="LeftWrap" type="Area2D" parent="Wrap" index="0"]
+[node name="SpawnPoints" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
-position = Vector2( -28.3423, 276.571 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/LeftWrap" index="0"]
+[node name="SpawnPoint1" type="Position2D" parent="SpawnPoints" index="0"]
 
-shape = SubResource( 4 )
+position = Vector2( 149.033, 137.228 )
 
-[node name="RightWrap" type="Area2D" parent="Wrap" index="1"]
+[node name="SpawnPoint2" type="Position2D" parent="SpawnPoints" index="1"]
+
+position = Vector2( 274.457, 237.567 )
+
+[node name="SpawnPoint3" type="Position2D" parent="SpawnPoints" index="2"]
+
+position = Vector2( 517.927, 253.799 )
+
+[node name="SpawnPoint4" type="Position2D" parent="SpawnPoints" index="3"]
+
+position = Vector2( 762.872, 233.141 )
+
+[node name="SpawnPoint5" type="Position2D" parent="SpawnPoints" index="4"]
+
+position = Vector2( 880.918, 122.473 )
+
+[node name="SpawnPoint6" type="Position2D" parent="SpawnPoints" index="5"]
+
+position = Vector2( 677.289, 7.3779 )
+
+[node name="SpawnPoint7" type="Position2D" parent="SpawnPoints" index="6"]
+
+position = Vector2( 324.626, 10.3291 )
+
+[node name="SpawnPoint8" type="Position2D" parent="SpawnPoints" index="7"]
+
+position = Vector2( 268.386, 368.492 )
+
+[node name="SpawnPoint9" type="Position2D" parent="SpawnPoints" index="8"]
+
+position = Vector2( 762.71, 338.892 )
+
+[node name="SpawnPoint10" type="Position2D" parent="SpawnPoints" index="9"]
+
+position = Vector2( 527.388, 421.772 )
+
+[node name="SpawnPoint11" type="Position2D" parent="SpawnPoints" index="10"]
+
+position = Vector2( 987.057, 49.6592 )
+
+[node name="SpawnPoint12" type="Position2D" parent="SpawnPoints" index="11"]
+
+position = Vector2( 38.5336, 49.6592 )
+
+[node name="Players" type="Node2D" parent="." index="5"]
+
+position = Vector2( 0, -40.8276 )
+scale = Vector2( 2, 2 )
+
+[node name="Player1" parent="Players" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 196.239, 68.1593 )
+scale = Vector2( 0.65, 0.65 )
+_sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
+
+[node name="Player2" parent="Players" index="1" instance=ExtResource( 5 )]
 
 editor/display_folded = true
-position = Vector2( 1048.95, 276.571 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 285.009, 68.7789 )
+scale = Vector2( 0.65, 0.65 )
+player_num = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/RightWrap" index="0"]
+[node name="Player3" parent="Players" index="2" instance=ExtResource( 5 )]
 
-shape = SubResource( 4 )
+editor/display_folded = true
+position = Vector2( 318.169, 68.0077 )
+scale = Vector2( 0.65, 0.65 )
+player_num = 3
 
 [connection signal="area_entered" from="Wrap/LeftWrap" to="Wrap" method="_on_LeftWrap_area_entered"]
 

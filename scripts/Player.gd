@@ -13,23 +13,30 @@ const OUTLINE_COLORS = {
 	'p3_': '#84ff61'
 }
 
+export (PackedScene) var Bullet = preload('res://scenes/Bullet.tscn')
 var SlashAttack = preload('res://scenes/SlashAttack.tscn')
-var JumpEffect = preload('res://scenes/JumpEffect.tscn')
-var HurtEffect = preload('res://scenes/AnimatedEffect.tscn')
+var AnimatedEffect = preload('res://scenes/AnimatedEffect.tscn')
+var Splat = preload("res://scenes/Splatter.tscn")
 
 var jumping = false
 var jump_count = 0
 var attacking = false
+var level
 
 onready var SlashPoint = $Pivot/SlashPoint
 onready var JumpPoint = $JumpPoint
+onready var FirePoint = $Pivot/FirePoint
+onready var HitBoxShape = $HitBox/CollisionShape2D
+onready var ColShape = $CollisionShape2D
 
 func _ready():
+	level = get_tree().current_scene
 	character_name = 'p' + str(player_num) + '_'
-#	self.modulate = Color(OUTLINE_COLORS[character_name])
+	self.modulate = Color(OUTLINE_COLORS[character_name])
 
 
 func _input(event):
+	if dead: return
 	if Input.is_action_just_pressed(character_name + 'a') and canJump():
 		anim_play('idle')
 		jumping = true
@@ -38,17 +45,25 @@ func _input(event):
 	if Input.is_action_just_pressed(character_name + 'b') and not attacking:
 		slash_attack()
 
+	elif Input.is_action_just_pressed(character_name + 'c') and not attacking:
+		shoot_attack()
+
 func _process(dt):
+	if dead: return
 	__movement_input()
 
 
 func _physics_process(dt):
+	if dead: return
 	jump()
 	if is_on_floor():
 		jump_count = 0
 
 func __movement_input():
-	if attacking: return
+	if attacking:
+		moving_left = false
+		moving_right = false
+		return
 	moving_left = Input.is_action_pressed(character_name + 'left')
 	moving_right = Input.is_action_pressed(character_name + 'right')
 	var moving = moving_left or moving_right
@@ -79,29 +94,55 @@ func jump():
 	motion.y = -jump_speed
 	jumping = false
 	if is_on_floor():
-		var effect = JumpEffect.instance()
-		get_parent().add_child(effect)
+		var effect = AnimatedEffect.instance()
+		effect.anim_effect = effect.JUMPING_DUST
+		effect.scale = Vector2(1.5, 1.5)
 		effect.global_position = JumpPoint.global_position
+		level.add_child(effect)
 
 func reset():
 	motion = Vector2(0, 0)
 	jump_count = 0
+	attacking = false
+	HitBoxShape.disabled = false
+	ColShape.disabled = false
+	anim_play('idle')
 
 func slash_attack():
 	anim_play('slash')
 	attacking = true
-	SlashPoint.add_child(SlashAttack.instance())
+	var slash = SlashAttack.instance()
+	slash.attacker = self
+	SlashPoint.add_child(slash)
+
+func shoot_attack():
+	anim_play('shoot')
+	attacking = true
+	var bullet = Bullet.instance()
+	bullet.direction = RIGHT * Pivot.scale.x
+	bullet.global_position = FirePoint.global_position
+	bullet.attacker = self
+	level.add_child(bullet)
+
+
+func __on_kill():
+	HitBoxShape.disabled = true
+	ColShape.disabled = true
+	anim_play('dead')
 
 
 func _on_animation_finished(anim_name):
-	if anim_name == 'slash':
+	if anim_name == 'slash' or anim_name == 'shoot':
 		attacking = false
 
 func __on_hitbox_entered(area):
 	if not area.is_in_group('attacks'): return
+	if area.get_parent() == SlashPoint: return
 
-	print(character_name + ' hurt by ' + area.name)
-	var effect = HurtEffect.instance()
-	effect.anim_effect = effect.RED_CLOUD
+	print(character_name + ' killed by ' + area.name)
+#	var effect = AnimatedEffect.instance()
+#	effect.anim_effect = effect.RED_CLOUD
+	var effect = Splat.instance()
 	effect.global_position = global_position
-	get_parent().add_child(effect)
+	level.add_child(effect)
+	level.kill_player(self)
