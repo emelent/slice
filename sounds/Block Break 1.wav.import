@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Block Break 1.wav-6f0095dc3f9be7f6a6959f61adf4a974.sample"
+
+[deps]
+
+source_file="res://sounds/Block Break 1.wav"
+source_md5="2787dfd0a5eb5176cf0446afff0a647b"
+
+dest_files=[ "res://.import/Block Break 1.wav-6f0095dc3f9be7f6a6959f61adf4a974.sample" ]
+dest_md5="d4f84cbd771b17080c782b451498cd67"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://sprites/temp.png" type="Texture" id=2]
-[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/Wrap.gd" type="Script" id=5]
+[ext_resource path="res://scenes/AudioManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/temp.png" type="Texture" id=3]
+[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/Wrap.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -22,13 +23,15 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 preset_player = false
 
-[node name="background" type="Sprite" parent="." index="0"]
+[node name="AudioManager" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="background" type="Sprite" parent="." index="1"]
 
 modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 507.688, 311.743 )
 scale = Vector2( 69.4637, 40.6704 )
 z_index = -2
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 hframes = 8
 frame = 3
 _sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
@@ -36,7 +39,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="playground" parent="." index="1" instance=ExtResource( 3 )]
+[node name="playground" parent="." index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 0, -40.8276 )
@@ -48,7 +51,7 @@ _sections_unfolded = [ "Material", "Transform" ]
 modulate = Color( 0.941406, 0.540803, 0.0257416, 1 )
 _sections_unfolded = [ "Visibility" ]
 
-[node name="ExtraFloor" type="Node2D" parent="." index="2"]
+[node name="ExtraFloor" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
 __meta__ = {
@@ -93,7 +96,7 @@ __meta__ = {
 
 shape = SubResource( 1 )
 
-[node name="SpawnPoints" type="Node2D" parent="." index="3"]
+[node name="SpawnPoints" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 __meta__ = {
@@ -148,36 +151,36 @@ position = Vector2( 987.057, 49.6592 )
 
 position = Vector2( 38.5336, 49.6592 )
 
-[node name="Players" type="Node2D" parent="." index="4"]
+[node name="Players" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 position = Vector2( 0, -40.8276 )
 scale = Vector2( 2, 2 )
 
-[node name="Player1" parent="Players" index="0" instance=ExtResource( 4 )]
+[node name="Player1" parent="Players" index="0" instance=ExtResource( 5 )]
 
 position = Vector2( 196.239, 68.1593 )
 scale = Vector2( 0.65, 0.65 )
 _sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
 
-[node name="Player2" parent="Players" index="1" instance=ExtResource( 4 )]
+[node name="Player2" parent="Players" index="1" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 position = Vector2( 285.009, 68.7789 )
 scale = Vector2( 0.65, 0.65 )
 player_num = 2
 
-[node name="Player3" parent="Players" index="2" instance=ExtResource( 4 )]
+[node name="Player3" parent="Players" index="2" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 position = Vector2( 318.169, 68.0077 )
 scale = Vector2( 0.65, 0.65 )
 player_num = 3
 
-[node name="Wrap" type="Node2D" parent="." index="5"]
+[node name="Wrap" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
-script = ExtResource( 5 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }

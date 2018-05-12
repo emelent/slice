@@ -1,8 +1,12 @@
 extends Node2D
 
 export var preset_player = true
+
 onready var Players = $Players
 onready var SpawnPoints = $SpawnPoints
+onready var AudioManager = $AudioManager
+
+
 var num_spawn_points = 0
 
 func _ready():

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Boss hit 1.wav-52cba03f0524f3e53a258396b08ab667.sample"
+
+[deps]
+
+source_file="res://sounds/Boss hit 1.wav"
+source_md5="b27090352295c078eb4754b11c742c4b"
+
+dest_files=[ "res://.import/Boss hit 1.wav-52cba03f0524f3e53a258396b08ab667.sample" ]
+dest_md5="3d55c3d276cf20acb17116a3b60fc944"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

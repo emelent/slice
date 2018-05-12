@@ -201,6 +201,7 @@ respawn_delay = 3.0
 spawn_location = Vector2( 0, 0 )
 character_name = ""
 knockback_duration = 0.1
+death_sound = "pop"
 player_num = 1
 max_jumps = 2
 jump_speed = 400

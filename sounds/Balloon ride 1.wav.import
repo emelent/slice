@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Balloon ride 1.wav-4da063f0c63b1146704d10835a0789ef.sample"
+
+[deps]
+
+source_file="res://sounds/Balloon ride 1.wav"
+source_md5="b6a2bd6de8d22d2edd009399052e7db4"
+
+dest_files=[ "res://.import/Balloon ride 1.wav-4da063f0c63b1146704d10835a0789ef.sample" ]
+dest_md5="c36ff59e95a7c6f3d5430bf221ed0224"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

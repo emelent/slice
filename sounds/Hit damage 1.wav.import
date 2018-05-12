@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hit damage 1.wav-6c501d62433af2d09b79fefd5c231eba.sample"
+
+[deps]
+
+source_file="res://sounds/Hit damage 1.wav"
+source_md5="8771e43a5acab3f5e38f428168f42070"
+
+dest_files=[ "res://.import/Hit damage 1.wav-6c501d62433af2d09b79fefd5c231eba.sample" ]
+dest_md5="5ca3796bcbcb4883ac73082c597c254a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

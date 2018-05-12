@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LandingFootsteps.wav-00b705fb4a660d129ccdb225836f8ab7.sample"
+
+[deps]
+
+source_file="res://sounds/LandingFootsteps.wav"
+source_md5="7c13ccb9ec7ea025cddc7927370ffcfa"
+
+dest_files=[ "res://.import/LandingFootsteps.wav-00b705fb4a660d129ccdb225836f8ab7.sample" ]
+dest_md5="40cd5c350be4504206715f0e1345db58"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

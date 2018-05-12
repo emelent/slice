@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Suck 1V2.wav-6cd63457983a1662b26e5e68e3b3de05.sample"
+
+[deps]
+
+source_file="res://sounds/Suck 1V2.wav"
+source_md5="196449745752cc7b688a31bd7061a2dc"
+
+dest_files=[ "res://.import/Suck 1V2.wav-6cd63457983a1662b26e5e68e3b3de05.sample" ]
+dest_md5="422a25067e2bfcc199c90acbda867b2c"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

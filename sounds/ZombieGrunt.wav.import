@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ZombieGrunt.wav-282fb32cd0eba894129c909bfd809039.sample"
+
+[deps]
+
+source_file="res://sounds/ZombieGrunt.wav"
+source_md5="b37e524ee92023e4d2b281773f7c06b9"
+
+dest_files=[ "res://.import/ZombieGrunt.wav-282fb32cd0eba894129c909bfd809039.sample" ]
+dest_md5="f160bf27132c5b0e525f1901bfefe8c6"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

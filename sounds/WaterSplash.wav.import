@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WaterSplash.wav-9c1ea15fabe9a2bc734e176acbf79ab6.sample"
+
+[deps]
+
+source_file="res://sounds/WaterSplash.wav"
+source_md5="6276080b24c0e47b8012f8ec8ed2d8bb"
+
+dest_files=[ "res://.import/WaterSplash.wav-9c1ea15fabe9a2bc734e176acbf79ab6.sample" ]
+dest_md5="5cdbd72eefd0f63cac71283f0030564f"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

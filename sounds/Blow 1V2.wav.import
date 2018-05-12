@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Blow 1V2.wav-d6c638ac61f525437a318fb4981f259b.sample"
+
+[deps]
+
+source_file="res://sounds/Blow 1V2.wav"
+source_md5="ebd804ac685949614c1dbac174d2ca09"
+
+dest_files=[ "res://.import/Blow 1V2.wav-d6c638ac61f525437a318fb4981f259b.sample" ]
+dest_md5="f9120ef0226f11e5158e67cbe6e8204a"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

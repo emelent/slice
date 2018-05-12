@@ -1,7 +1,7 @@
 extends 'Character.gd'
 
 
-
+export var death_sound = 'pop'
 export (int, 1, 3) var player_num = 1
 export var max_jumps = 2
 export var jump_speed = 400
@@ -18,6 +18,7 @@ var SlashAttack = preload('res://scenes/SlashAttack.tscn')
 var AnimatedEffect = preload('res://scenes/AnimatedEffect.tscn')
 var Splat = preload("res://scenes/Splatter.tscn")
 
+var airborne = false
 var jumping = false
 var jump_count = 0
 var attacking = false
@@ -58,6 +59,11 @@ func _physics_process(dt):
 	jump()
 	if is_on_floor():
 		jump_count = 0
+		if airborne:
+			airborne = false
+			level.AudioManager.play('land')
+	else:
+		airborne = true
 
 func __movement_input():
 	if attacking:
@@ -90,6 +96,7 @@ func canJump():
 
 func jump():
 	if not jumping: return
+	level.AudioManager.play('jump')
 	anim_play('jump')
 	motion.y = -jump_speed
 	jumping = false
@@ -114,6 +121,7 @@ func slash_attack():
 	var slash = SlashAttack.instance()
 	slash.attacker = self
 	SlashPoint.add_child(slash)
+#	level.AudioManager.play(slash.spawn_sound)
 
 func shoot_attack():
 	anim_play('shoot')
@@ -128,7 +136,7 @@ func shoot_attack():
 func __on_kill():
 	HitBoxShape.disabled = true
 	ColShape.disabled = true
-	anim_play('dead')
+	level.AudioManager.play(death_sound)
 
 
 func _on_animation_finished(anim_name):

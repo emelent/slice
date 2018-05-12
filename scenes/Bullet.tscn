@@ -28,6 +28,8 @@ __meta__ = {
 }
 speed = 400
 maxWraps = 1
+spawn_sound = "bullet_spawn"
+hit_sound = "bullet_hit"
 
 [node name="Animator" type="AnimationPlayer" parent="." index="0"]
 
