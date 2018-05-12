@@ -4,7 +4,7 @@ export var preset_player = true
 
 onready var Players = $Players
 onready var SpawnPoints = $SpawnPoints
-
+onready var HUD = $HUD
 
 var num_spawn_points = 0
 var stats = {
@@ -50,5 +50,6 @@ func kill_player(player):
 	else:
 		stats[killer_name]['kills'] += 1
 	stats[player.character_name]['deaths'] += 1
-	emit_signal('score_updated', stats)
+	HUD.update_score(stats)
+
 

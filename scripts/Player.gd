@@ -10,7 +10,7 @@ export (float, 0.0, 1.0) var wall_slide_friction = 0.9
 const OUTLINE_COLORS = {
 	'p1_': '#ff629d',
 	'p2_': '#62cbff',
-	'p3_': '#84ff61'
+	'p3_': '#85a946'
 }
 
 export (PackedScene) var Bullet = preload('res://scenes/Bullet.tscn')
@@ -34,7 +34,8 @@ onready var ColShape = $CollisionShape2D
 func _ready():
 	level = get_tree().current_scene
 	character_name = 'p' + str(player_num) + '_'
-	self.modulate = Color(OUTLINE_COLORS[character_name])
+	Sprite.self_modulate = Color(OUTLINE_COLORS[character_name])
+
 
 
 func _input(event):
@@ -85,8 +86,9 @@ func __movement_input():
 			if motion.y == 0:
 				anim_play('wall_slide')
 				wall_hang = true
-
-			if motion.y > 0.0 and gravity_on:
+				jump_count = max_jumps - 2
+				gravity_on = false
+			elif motion.y > 0.0 and gravity_on:
 				motion.y = 0.0
 				gravity_on = false
 		else:
@@ -100,7 +102,7 @@ func __movement_input():
 
 
 func canJump():
-	return (is_on_floor() or jump_count < max_jumps) and not attacking
+	return (is_on_floor() or jump_count < max_jumps - 1) and not attacking
 
 func jump():
 	if not jumping: return
@@ -149,6 +151,7 @@ func __on_kill():
 func _on_animation_finished(anim_name):
 	if anim_name == 'slash' or anim_name == 'shoot':
 		attacking = false
+		Sprite.self_modulate = Color(OUTLINE_COLORS[character_name])
 
 func __on_hitbox_entered(area):
 	if not area.is_in_group('attacks'): return

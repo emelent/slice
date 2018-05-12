@@ -156,6 +156,7 @@ position = Vector2( 38.5336, 49.6592 )
 
 [node name="Players" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 0, -40.8276 )
 scale = Vector2( 2, 2 )
 
@@ -163,7 +164,7 @@ scale = Vector2( 2, 2 )
 
 position = Vector2( 196.239, 68.1593 )
 scale = Vector2( 0.65, 0.65 )
-_sections_unfolded = [ "Collision", "Material", "Visibility", "collision" ]
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility", "collision" ]
 
 [node name="Player2" parent="Players" index="1" instance=ExtResource( 4 )]
 
