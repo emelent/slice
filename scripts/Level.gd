@@ -4,10 +4,11 @@ export var preset_player = true
 
 onready var Players = $Players
 onready var SpawnPoints = $SpawnPoints
-onready var AudioManager = $AudioManager
 
 
 var num_spawn_points = 0
+var stats = {
+}
 
 func _ready():
 	num_spawn_points = SpawnPoints.get_child_count()
@@ -22,6 +23,10 @@ func _input(event):
 
 func setup():
 	for player in Players.get_children():
+		stats[player.character_name] = {
+			'deaths': 0,
+			'kills': 0
+		}
 		var point = get_random_spawn_point()
 		if not preset_player:
 			player.global_position = point

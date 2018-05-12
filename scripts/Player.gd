@@ -18,6 +18,7 @@ var SlashAttack = preload('res://scenes/SlashAttack.tscn')
 var AnimatedEffect = preload('res://scenes/AnimatedEffect.tscn')
 var Splat = preload("res://scenes/Splatter.tscn")
 
+var wall_hang = false
 var airborne = false
 var jumping = false
 var jump_count = 0
@@ -43,10 +44,10 @@ func _input(event):
 		jumping = true
 		jump_count += 1
 
-	if Input.is_action_just_pressed(character_name + 'b') and not attacking:
+	if Input.is_action_just_pressed(character_name + 'b') and not attacking and not wall_hang:
 		slash_attack()
 
-	elif Input.is_action_just_pressed(character_name + 'c') and not attacking:
+	elif Input.is_action_just_pressed(character_name + 'c') and not attacking and not wall_hang:
 		shoot_attack()
 
 func _process(dt):
@@ -73,18 +74,25 @@ func __movement_input():
 	moving_left = Input.is_action_pressed(character_name + 'left')
 	moving_right = Input.is_action_pressed(character_name + 'right')
 	var moving = moving_left or moving_right
-	if moving and is_on_floor():
-		anim_play('run')
+	wall_hang = false
+	gravity_on = true
 
-	if moving and is_on_wall():
-		anim_play('wall_slide')
-		if motion.y > 0.0 and gravity_on:
-			motion.y = 0.0
-			gravity_on = false
-	else:
-		gravity_on = true
+	if moving:
+		if is_on_floor():
+			anim_play('run')
 
-	if not moving and not attacking:
+		elif is_on_wall():
+			if motion.y == 0:
+				anim_play('wall_slide')
+				wall_hang = true
+
+			if motion.y > 0.0 and gravity_on:
+				motion.y = 0.0
+				gravity_on = false
+		else:
+			anim_play('jump')
+
+	elif not attacking:
 		if is_on_floor():
 			anim_play('idle')
 		else:
@@ -146,7 +154,8 @@ func __on_hitbox_entered(area):
 	if not area.is_in_group('attacks'): return
 	if area.get_parent() == SlashPoint: return
 
-	print(character_name + ' killed by ' + area.name)
+	print(character_name + ' killed by ' + area.attacker.character_name)
+	killer = area.attacker
 #	var effect = AnimatedEffect.instance()
 #	effect.anim_effect = effect.RED_CLOUD
 	var effect = Splat.instance()

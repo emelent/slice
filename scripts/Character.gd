@@ -15,6 +15,7 @@ export var spawn_location = Vector2(0, 0)
 export var character_name = ''
 export var knockback_duration = 0.1
 
+var killer = ''
 var allow_moving
 var motion = Vector2(0,0)
 var respawn_time = -1
@@ -75,6 +76,7 @@ func __check_for_respawn(dt):
 		respawn()
 		respawn_time = -1
 
+# run when character is killed
 func __on_kill():
 	pass
 
@@ -114,12 +116,3 @@ func anim_play(name):
 func reset():
 	pass
 
-func hurt():
-	pass
-
-func __on_hurt(area):
-	if area.get_parent() == self: return
-	if area.is_in_group('hitbox'):
-		anim_play('Hurt')
-		hurting = true
-		hurt()
