@@ -32,6 +32,7 @@ func __on_bullet_area_entered(area):
 	bullet_hit()
 
 func __on_bullet_body_entered(body):
+	if body.is_in_group('character_colliders'): return
 	bullet_hit()
 
 
