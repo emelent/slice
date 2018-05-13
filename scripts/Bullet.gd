@@ -26,8 +26,8 @@ func bullet_hit():
 func __on_bullet_area_entered(area):
 	if area.is_in_group('bullets'): return
 	if area.is_in_group('slashes'):
-		direction = Vector2(1, 0) * attacker.facing
-		attacker = area.attacker
+		var slicer = area.attacker
+		direction = Vector2(1, 0) * slicer.facing
 		AudioManager.play(rebound_sound)
 		return
 

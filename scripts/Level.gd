@@ -17,10 +17,6 @@ func _ready():
 	setup()
 
 
-func _input(event):
-	if Input.is_key_pressed(KEY_ESCAPE):
-		get_tree().quit()
-
 
 func setup():
 	for player in Players.get_children():
@@ -40,15 +36,17 @@ func get_random_spawn_point():
 	return point.global_position
 
 func kill_player(player):
+	if player.immortal: return
 	player.set_spawn_location(get_random_spawn_point())
 	player.kill()
 
 	# update score
-	var killer_name = player.killer.character_name
-	if player.killer == player:
-		stats[killer_name]['kills'] -= 1
-	else:
-		stats[killer_name]['kills'] += 1
+	if player.killer:
+		var killer_name = player.killer.character_name
+		if player.killer == player:
+			stats[killer_name]['kills'] -= 1
+		else:
+			stats[killer_name]['kills'] += 1
 	stats[player.character_name]['deaths'] += 1
 	HUD.update_score(stats)
 

@@ -5,7 +5,7 @@ export var death_sound = 'pop'
 export (int, 1, 3) var player_num = 1
 export var max_jumps = 2
 export var jump_speed = 400
-export (float, 0.0, 1.0) var wall_slide_friction = 0.9
+export (float, 0.0, 1.0) var wall_slide_friction = 0
 
 const OUTLINE_COLORS = {
 	'p1_': '#ff629d',
@@ -74,23 +74,28 @@ func __movement_input():
 		return
 	moving_left = Input.is_action_pressed(character_name + 'left')
 	moving_right = Input.is_action_pressed(character_name + 'right')
+	if not gravity_on:
+		if Input.is_action_pressed(character_name + 'up'):
+			motion.y = -movement_speed
+		elif Input.is_action_pressed(character_name + 'down'):
+			motion.y = movement_speed
+		else:
+			motion.y = 0
 	var moving = moving_left or moving_right
 	wall_hang = false
-	gravity_on = true
+	gravity_multiplier = 1
 
 	if moving:
 		if is_on_floor():
 			anim_play('run')
 
 		elif is_on_wall():
-			if motion.y == 0:
-				anim_play('wall_slide')
-				wall_hang = true
-				jump_count = max_jumps - 2
-				gravity_on = false
-			elif motion.y > 0.0 and gravity_on:
-				motion.y = 0.0
-				gravity_on = false
+			motion.y = 0
+			anim_play('wall_slide')
+			wall_hang = true
+			jump_count = max_jumps - 2
+			gravity_multiplier = wall_slide_friction
+
 		else:
 			anim_play('jump')
 
@@ -102,7 +107,7 @@ func __movement_input():
 
 
 func canJump():
-	return (is_on_floor() or jump_count < max_jumps - 1) and not attacking
+	return (is_on_floor() or jump_count < max_jumps - 1) and not attacking and not wall_hang
 
 func jump():
 	if not jumping: return
@@ -119,7 +124,9 @@ func jump():
 
 func reset():
 	motion = Vector2(0, 0)
+	killer = null
 	jump_count = 0
+	gravity_multiplier = 1
 	attacking = false
 	HitBoxShape.disabled = false
 	ColShape.disabled = false
@@ -154,13 +161,17 @@ func _on_animation_finished(anim_name):
 		Sprite.self_modulate = Color(OUTLINE_COLORS[character_name])
 
 func __on_hitbox_entered(area):
+	if immortal: return
+	if area.is_in_group('deathzone'):
+		level.kill_player(self)
+		return
+
 	if not area.is_in_group('attacks'): return
 	if area.get_parent() == SlashPoint: return
 
-	print(character_name + ' killed by ' + area.attacker.character_name)
+	if area.attacker:
+		print(character_name + ' hurt by ' + area.attacker.character_name)
 	killer = area.attacker
-#	var effect = AnimatedEffect.instance()
-#	effect.anim_effect = effect.RED_CLOUD
 	var effect = Splat.instance()
 	effect.global_position = global_position
 	level.add_child(effect)

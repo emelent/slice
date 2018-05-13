@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/Turret.gd" type="Script" id=1]
+[ext_resource path="res://scenes/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/temp.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.0804, 11.9918 )
+
+[node name="Turret" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+Bullet = ExtResource( 2 )
+wait_time = 3.0
+
+[node name="Timer" type="Timer" parent="." index="0"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = false
+autostart = true
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+hframes = 8
+frame = 1
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="FirePoint" type="Position2D" parent="." index="2"]
+
+position = Vector2( 22.1033, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+visible = false
+shape = SubResource( 1 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+

@@ -205,6 +205,7 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility" ]
+immortal = true
 gravity_on = true
 respawnable = true
 gravity = 900
@@ -217,7 +218,7 @@ death_sound = "pop"
 player_num = 1
 max_jumps = 2
 jump_speed = 400
-wall_slide_friction = 0.9
+wall_slide_friction = 0
 Bullet = ExtResource( 2 )
 
 [node name="Pivot" type="Position2D" parent="." index="0"]

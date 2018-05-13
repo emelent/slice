@@ -48,7 +48,7 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 13.526, 13.2863 )
+extents = Vector2( 13.526, 14.0911 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -89,14 +89,12 @@ scale = Vector2( 2, 2 )
 z_index = 2
 texture = ExtResource( 2 )
 hframes = 3
-frame = 1
 _sections_unfolded = [ "Animation", "Transform", "Z Index" ]
 
 [node name="InitShape" type="CollisionShape2D" parent="." index="2"]
 
-position = Vector2( 18.4833, -2.41388 )
+position = Vector2( 18.4833, -2.98519 )
 shape = SubResource( 1 )
-disabled = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="FinalShape" type="CollisionShape2D" parent="." index="3"]
@@ -104,6 +102,7 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( 12.7181, 6.55421 )
 z_index = 2
 shape = SubResource( 2 )
+disabled = true
 _sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="__animation_finished"]

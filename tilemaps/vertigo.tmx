@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0.0" orientation="orthogonal" renderorder="right-down" width="32" height="20" tilewidth="32" tileheight="32" nextobjectid="21">
+ <tileset firstgid="1" name="goop" tilewidth="32" tileheight="32" tilecount="70" columns="7">
+  <image source="../sprites/goop.png" width="224" height="320"/>
+ </tileset>
+ <layer name="main" width="32" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzVls0KhDAMhHX14OrBn4Pr+z+p8VAoYWInNR52YEAo5ivTpNo0/61d/AM+gjl9cD0vY6qol7LRWbTij7gzGOg9xK/NZBB/xaPBR0JrNZm8yUd5oKwZvq61EXy0R8Sy+DmDyVbv6Skf1ULzbc32G3yPIvjp3Fl+3icR/FQD9RvSZDw/5bOq4c/iRbySfD2LVuYoM6bXSvy7OS/l5eV775lSn3j5SMw9dymdS/79yvn6LmH/EVh+xPkzddnZZPgnfGIHeg==
+  </data>
+ </layer>
+ <layer name="fg1" width="32" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAesKGiWeQAZyBmHWA3EAu06GQPGw5xQwL6FKjsjlFAOVABYtUBtF8biHUGwF4pKDYCYuMBsH8wA9mBdsAoGFJgpJYhMAArQ+QH0A2DCQAAH7YDgA==
+  </data>
+ </layer>
+ <layer name="fg2" width="32" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgeQG6gHUAi0MIiJksDe3CZyUpAnxS1HTICAK4wBYWlPD0dMkwBKAxH0yUqIJSPR8EoGAUIAGon0KKeHaoAAHhgAVk=
+  </data>
+ </layer>
+ <objectgroup name="collision">
+  <properties>
+   <property name="collision" type="bool" value="true"/>
+  </properties>
+  <object id="1" name="1" x="99" y="110" width="26" height="163"/>
+  <object id="3" name="1" x="194.727" y="238.182" width="26" height="163"/>
+  <object id="4" name="1" x="130.333" y="366.5" width="26" height="163"/>
+  <object id="5" name="1" x="418.333" y="462.5" width="26" height="163"/>
+  <object id="6" name="1" x="290.333" y="462.5" width="26" height="163"/>
+  <object id="7" name="1" x="514.333" y="366.5" width="26" height="163"/>
+  <object id="8" name="1" x="483" y="141.5" width="26" height="130.333"/>
+  <object id="9" name="1" x="322" y="78.5" width="26" height="159.667"/>
+  <object id="10" name="1" x="611" y="207" width="26" height="256.5"/>
+  <object id="11" x="611" y="559.333" width="25.3333" height="33.6667"/>
+  <object id="12" x="684" y="559" width="72" height="17.6667"/>
+  <object id="13" x="783" y="207.667" width="68" height="432.333"/>
+  <object id="14" x="875" y="558.333" width="136" height="19.6667"/>
+  <object id="15" x="942.667" y="111.667" width="69" height="322.333"/>
+  <object id="16" x="747" y="110.25" width="74" height="17.75"/>
+  <object id="17" x="523.333" y="45.6667" width="201.667" height="17.3333"/>
+  <object id="18" x="267" y="303.333" width="170.333" height="16.6667"/>
+  <object id="19" x="172" y="143" width="72" height="18"/>
+ </objectgroup>
+</map>

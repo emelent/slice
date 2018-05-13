@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rpg_village02__loop.ogg-65c63d370071b1ea30a0aed7492ff8ec.oggstr"
+
+[deps]
+
+source_file="res://sounds/rpg_village02__loop.ogg"
+source_md5="35b69fca4442937688dfefcbca270111"
+
+dest_files=[ "res://.import/rpg_village02__loop.ogg-65c63d370071b1ea30a0aed7492ff8ec.oggstr" ]
+dest_md5="29b7779a1408d7744db7d501aff02b3b"
+
+[params]
+
+loop=true
+loop_offset=0

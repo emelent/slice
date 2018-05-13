@@ -6,6 +6,7 @@ const DOWN = Vector2(0, 1)
 const LEFT = Vector2(-1, 0)
 const RIGHT = Vector2(1, 0)
 
+export var immortal = false
 export var gravity_on = true
 export var respawnable = false
 export var gravity = 900
@@ -87,6 +88,7 @@ func set_spawn_location(location):
 
 # kill the character
 func kill():
+	if immortal: return
 	dead = true
 	visible = false
 	__on_kill()

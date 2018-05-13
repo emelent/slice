@@ -1,23 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://sprites/temp.png" type="Texture" id=2]
-[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/Wrap.gd" type="Script" id=5]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sprites/bg.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Wrap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilemaps/playground.tmx" type="PackedScene" id=4]
+[ext_resource path="res://sprites/tiles/Tile_1.png" type="Texture" id=5]
+[ext_resource path="res://sprites/tiles/Tile_2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/tiles/Tile_3.png" type="Texture" id=7]
+[ext_resource path="res://sprites/tiles/Tile_4.png" type="Texture" id=8]
+[ext_resource path="res://sprites/tiles/Tile_5.png" type="Texture" id=9]
+[ext_resource path="res://sprites/tiles/Tile_6.png" type="Texture" id=10]
+[ext_resource path="res://sprites/tiles/Tile_7.png" type="Texture" id=11]
+[ext_resource path="res://sprites/tiles/Tile_8.png" type="Texture" id=12]
+[ext_resource path="res://sprites/tiles/Tile_9.png" type="Texture" id=13]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 37.243, 10.5569 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 717.97 )
-
-[node name="PlaygroundLevel" type="Node2D" index="0"]
+[node name="PlaygroundLevel" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -25,19 +29,18 @@ preset_player = false
 
 [node name="background" type="Sprite" parent="." index="0"]
 
-modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 507.688, 311.743 )
-scale = Vector2( 69.4637, 40.6704 )
-z_index = -2
+modulate = Color( 0.589844, 0.170502, 0.170502, 1 )
+position = Vector2( 512.714, 310.443 )
+scale = Vector2( 0.317312, 0.26435 )
 texture = ExtResource( 2 )
-hframes = 8
-frame = 3
-_sections_unfolded = [ "Animation", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="playground" parent="." index="1" instance=ExtResource( 3 )]
+[node name="Wrap" parent="." index="1" instance=ExtResource( 3 )]
+
+[node name="playground" parent="." index="2" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 0, -40.8276 )
@@ -46,16 +49,17 @@ _sections_unfolded = [ "Material", "Transform" ]
 
 [node name="platforms" parent="playground" index="0"]
 
-modulate = Color( 0.941406, 0.540803, 0.0257416, 1 )
+modulate = Color( 0.347656, 0.0570374, 0.0570374, 1 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="collision" parent="playground" index="1"]
 
 visible = false
 
-[node name="ExtraFloor" type="Node2D" parent="." index="2"]
+[node name="ExtraFloor" type="Node2D" parent="." index="3"]
 
 editor/display_folded = true
+visible = false
 __meta__ = {
 "_edit_lock_": true
 }
@@ -98,7 +102,155 @@ __meta__ = {
 
 shape = SubResource( 1 )
 
-[node name="SpawnPoints" type="Node2D" parent="." index="3"]
+[node name="decor" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 324.38, 120.678 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="top_left_grass" type="Sprite" parent="decor" index="0"]
+
+scale = Vector2( 1, 1 )
+texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass" type="Sprite" parent="decor" index="1"]
+
+position = Vector2( 255.725, 0.46283 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass2" type="Sprite" parent="decor" index="2"]
+
+position = Vector2( 510.849, 0.46283 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass3" type="Sprite" parent="decor" index="3"]
+
+position = Vector2( 766.863, 0.46283 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass4" type="Sprite" parent="decor" index="4"]
+
+position = Vector2( 1021.63, 0.46283 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass5" type="Sprite" parent="decor" index="5"]
+
+position = Vector2( 1277.48, 0.46283 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass6" type="Sprite" parent="decor" index="6"]
+
+position = Vector2( 1533.07, 0.46283 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="top_mid_grass7" type="Sprite" parent="decor" index="7"]
+
+position = Vector2( 1637.38, -1.66797 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tile_3" type="Sprite" parent="decor" index="8"]
+
+position = Vector2( 1880.12, -0.826111 )
+texture = ExtResource( 7 )
+
+[node name="Tile_4" type="Sprite" parent="decor" index="9"]
+
+position = Vector2( 34.0236, 212.199 )
+texture = ExtResource( 8 )
+region_enabled = true
+region_rect = Rect2( 98, 8, 134, 174 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Tile_5" type="Sprite" parent="decor" index="10"]
+
+position = Vector2( 145.135, 169.62 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 91, 85 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Tile_16" type="Sprite" parent="decor" index="11"]
+
+position = Vector2( 969.195, 169.62 )
+scale = Vector2( 17.3376, 1 )
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 91, 85 )
+region_filter_clip = true
+_sections_unfolded = [ "Region" ]
+
+[node name="Tile_6" type="Sprite" parent="decor" index="12"]
+
+position = Vector2( 1832.21, 198.363 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 157, 147 )
+_sections_unfolded = [ "Region" ]
+
+[node name="Tile_7" type="Sprite" parent="decor" index="13"]
+
+position = Vector2( -0.250122, 318.7 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 11 )
+
+[node name="Tile_8" type="Sprite" parent="decor" index="14"]
+
+position = Vector2( 255.217, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_9" type="Sprite" parent="decor" index="15"]
+
+position = Vector2( 510.916, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_10" type="Sprite" parent="decor" index="16"]
+
+position = Vector2( 766.615, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_11" type="Sprite" parent="decor" index="17"]
+
+position = Vector2( 1021.07, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_12" type="Sprite" parent="decor" index="18"]
+
+position = Vector2( 1275.53, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_13" type="Sprite" parent="decor" index="19"]
+
+position = Vector2( 1528.18, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_14" type="Sprite" parent="decor" index="20"]
+
+position = Vector2( 1641.8, 320.028 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 12 )
+
+[node name="Tile_15" type="Sprite" parent="decor" index="21"]
+
+position = Vector2( 1880.57, 320.371 )
+scale = Vector2( 0.999999, 0.999999 )
+texture = ExtResource( 13 )
+
+[node name="SpawnPoints" type="Node2D" parent="." index="5"]
 
 editor/display_folded = true
 visible = false
@@ -154,90 +306,38 @@ position = Vector2( 987.057, 49.6592 )
 
 position = Vector2( 38.5336, 49.6592 )
 
-[node name="Players" type="Node2D" parent="." index="4"]
+[node name="Players" type="Node2D" parent="." index="6"]
 
 editor/display_folded = true
 position = Vector2( 0, -40.8276 )
-scale = Vector2( 2, 2 )
-
-[node name="Player1" parent="Players" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( 196.239, 68.1593 )
-scale = Vector2( 0.65, 0.65 )
-_sections_unfolded = [ "Collision", "Material", "Pickable", "Visibility", "collision" ]
-
-[node name="Player2" parent="Players" index="1" instance=ExtResource( 4 )]
-
-editor/display_folded = true
-position = Vector2( 285.009, 68.7789 )
-scale = Vector2( 0.65, 0.65 )
-player_num = 2
-
-[node name="Player3" parent="Players" index="2" instance=ExtResource( 4 )]
-
-editor/display_folded = true
-position = Vector2( 318.169, 68.0077 )
-scale = Vector2( 0.65, 0.65 )
-player_num = 3
-
-[node name="Wrap" type="Node2D" parent="." index="5"]
-
-editor/display_folded = true
-script = ExtResource( 5 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
-offset = 20
 
-[node name="LeftWrap" type="Area2D" parent="Wrap" index="0" groups=[
-"wrappers",
-]]
+[node name="Player1" parent="Players" index="0" instance=ExtResource( 14 )]
 
-position = Vector2( -28.3423, 276.571 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
+position = Vector2( 196.239, 68.1593 )
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/LeftWrap" index="0"]
+[node name="Player2" parent="Players" index="1" instance=ExtResource( 14 )]
 
-shape = SubResource( 2 )
+editor/display_folded = true
+position = Vector2( 285.009, 68.7789 )
+player_num = 2
 
-[node name="RightWrap" type="Area2D" parent="Wrap" index="1" groups=[
-"wrappers",
-]]
+[node name="Player3" parent="Players" index="2" instance=ExtResource( 14 )]
 
-position = Vector2( 1048.95, 276.571 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
+editor/display_folded = true
+position = Vector2( 318.169, 68.0077 )
+immortal = false
+player_num = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wrap/RightWrap" index="0"]
-
-shape = SubResource( 2 )
-
-[node name="HUD" parent="." index="6" instance=ExtResource( 6 )]
+[node name="HUD" parent="." index="7" instance=ExtResource( 15 )]
 
 editor/display_folded = true
 margin_left = 1.0
 margin_right = 1.0
-
-[connection signal="area_entered" from="Wrap/LeftWrap" to="Wrap" method="_on_LeftWrap_area_entered"]
-
-[connection signal="area_entered" from="Wrap/RightWrap" to="Wrap" method="_on_RightWrap_area_entered"]
 
 
 [editable path="playground"]

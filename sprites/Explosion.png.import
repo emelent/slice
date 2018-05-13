@@ -2,14 +2,14 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Explosion.png-b982da0d38ede858ab3f64ad091769aa.stex"
+path="res://.import/explosion.png-dd7434c2b7b548e19d49e62996eee12b.stex"
 
 [deps]
 
-source_file="res://sprites/Explosion.png"
+source_file="res://sprites/explosion.png"
 source_md5="b10eaf076dc20f09799ad7959b59266e"
 
-dest_files=[ "res://.import/Explosion.png-b982da0d38ede858ab3f64ad091769aa.stex" ]
+dest_files=[ "res://.import/explosion.png-dd7434c2b7b548e19d49e62996eee12b.stex" ]
 dest_md5="7e220cd53d3dafedaaf43f5c48e45fe7"
 
 [params]

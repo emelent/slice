@@ -1,0 +1,23 @@
+[remap]
+
+importer="vnen.tiled_importer"
+type="PackedScene"
+path="res://.import/vertigo.tmx-9b59072ea021ee1b7f0ecd166eee41d2.scn"
+
+[deps]
+
+source_file="res://tilemaps/vertigo.tmx"
+source_md5="7c36d62a7ce97ba1d5edfa08f463655d"
+
+dest_files=[ "res://.import/vertigo.tmx-9b59072ea021ee1b7f0ecd166eee41d2.scn" ]
+dest_md5="9f233e8e88d2e9359ab46f35f0f7db75"
+
+[params]
+
+custom_properties=true
+tile_metadata=false
+uv_clip=true
+image_flags=7
+embed_internal_images=false
+save_tiled_properties=false
+post_import_script=""

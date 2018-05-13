@@ -1,0 +1,194 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://sprites/CloudsBack.png" type="Texture" id=2]
+[ext_resource path="res://sprites/CloudsFront.png" type="Texture" id=3]
+[ext_resource path="res://tilemaps/vertigo.tmx" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Wrap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "auto"
+length = 16.0
+loop = true
+step = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CloudsFront:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4, 8, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 555.136, 298.026 ), Vector2( 497.281, 298.026 ), Vector2( 450.996, 298.026 ), Vector2( 497.281, 298.026 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 1195.24, 43.832 )
+
+[node name="VertigoLevel" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+preset_player = false
+
+[node name="background" type="Node2D" parent="." index="0"]
+
+modulate = Color( 1, 0.519531, 0.519531, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CloudsBack" type="Sprite" parent="background" index="0"]
+
+position = Vector2( 504.693, 298.026 )
+scale = Vector2( 2.42294, 1.95713 )
+texture = ExtResource( 2 )
+
+[node name="CloudsFront" type="Sprite" parent="background" index="1"]
+
+position = Vector2( 537.53, 298.026 )
+scale = Vector2( 2.43319, 1.95713 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="background" index="2"]
+
+root_node = NodePath("..")
+autoplay = "auto"
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/auto = SubResource( 2 )
+blend_times = [  ]
+
+[node name="vertigo" parent="." index="1" instance=ExtResource( 4 )]
+
+editor/display_folded = true
+position = Vector2( 21.094, 2.33868 )
+
+[node name="Players" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Player1" parent="Players" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 216.884, 102.35 )
+immortal = false
+
+[node name="Player2" parent="Players" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 216.884, 102.35 )
+immortal = false
+player_num = 2
+
+[node name="Player3" parent="Players" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 216.884, 102.35 )
+immortal = false
+player_num = 3
+
+[node name="Wrap" parent="." index="3" instance=ExtResource( 6 )]
+
+[node name="SpawnPoints" type="Node2D" parent="." index="4"]
+
+[node name="Spawn1" type="Position2D" parent="SpawnPoints" index="0"]
+
+position = Vector2( 114.736, 70.0084 )
+
+[node name="Spawn18" type="Position2D" parent="SpawnPoints" index="1"]
+
+position = Vector2( 215.859, 110.847 )
+
+[node name="Spawn2" type="Position2D" parent="SpawnPoints" index="2"]
+
+position = Vector2( 416.161, 250.863 )
+
+[node name="Spawn3" type="Position2D" parent="SpawnPoints" index="3"]
+
+position = Vector2( 305.314, 402.548 )
+
+[node name="Spawn4" type="Position2D" parent="SpawnPoints" index="4"]
+
+position = Vector2( 727.309, 495.893 )
+
+[node name="Spawn5" type="Position2D" parent="SpawnPoints" index="5"]
+
+position = Vector2( 960.671, 495.893 )
+
+[node name="Spawn6" type="Position2D" parent="SpawnPoints" index="6"]
+
+position = Vector2( 828.433, 169.187 )
+
+[node name="Spawn7" type="Position2D" parent="SpawnPoints" index="7"]
+
+position = Vector2( 968.449, 64.1744 )
+
+[node name="Spawn8" type="Position2D" parent="SpawnPoints" index="8"]
+
+position = Vector2( 676.748, 11.6681 )
+
+[node name="Spawn9" type="Position2D" parent="SpawnPoints" index="9"]
+
+position = Vector2( 616.463, 124.459 )
+
+[node name="Spawn10" type="Position2D" parent="SpawnPoints" index="10"]
+
+position = Vector2( 490.059, 71.9531 )
+
+[node name="Spawn11" type="Position2D" parent="SpawnPoints" index="11"]
+
+position = Vector2( 530.897, 313.093 )
+
+[node name="Spawn12" type="Position2D" parent="SpawnPoints" index="12"]
+
+position = Vector2( 640.196, 493.948 )
+
+[node name="Spawn13" type="Position2D" parent="SpawnPoints" index="13"]
+
+position = Vector2( 435.608, 404.493 )
+
+[node name="Spawn14" type="Position2D" parent="SpawnPoints" index="14"]
+
+position = Vector2( 217.804, 208.081 )
+
+[node name="Spawn15" type="Position2D" parent="SpawnPoints" index="15"]
+
+position = Vector2( 145.851, 315.038 )
+
+[node name="Spawn16" type="Position2D" parent="SpawnPoints" index="16"]
+
+position = Vector2( 785.65, 83.6211 )
+
+[node name="Spawn17" type="Position2D" parent="SpawnPoints" index="17"]
+
+position = Vector2( 338.374, 33.0595 )
+
+[node name="HUD" parent="." index="5" instance=ExtResource( 7 )]
+
+[node name="DeathZone" type="Area2D" parent="." index="6" groups=[
+"attacks",
+"deathzone",
+]]
+
+position = Vector2( 481.134, 658.944 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" index="0"]
+
+shape = SubResource( 1 )
+
+
+[editable path="vertigo"]

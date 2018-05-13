@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Wrap.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 717.97 )
+
+[node name="Wrap" type="Node2D"]
+
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+offset = 20
+
+[node name="LeftWrap" type="Area2D" parent="." index="0" groups=[
+"wrappers",
+]]
+
+position = Vector2( -28.3423, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWrap" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="RightWrap" type="Area2D" parent="." index="1" groups=[
+"wrappers",
+]]
+
+position = Vector2( 1048.95, 276.571 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWrap" index="0"]
+
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="LeftWrap" to="." method="_on_LeftWrap_area_entered"]
+
+[connection signal="area_entered" from="RightWrap" to="." method="_on_RightWrap_area_entered"]
+
+
