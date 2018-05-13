@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+_sections_unfolded = [ "Resource" ]
 
 [node name="HUD" type="Control"]
 
@@ -35,6 +39,7 @@ _sections_unfolded = [ "Margin" ]
 
 [node name="score" type="Label" parent="P1" index="0"]
 
+modulate = Color( 1, 0, 0, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -47,12 +52,13 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
+theme = SubResource( 1 )
 text = "0 / 0"
 uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="P2" type="Container" parent="." index="1"]
 
@@ -72,6 +78,7 @@ size_flags_vertical = 1
 
 [node name="score" type="Label" parent="P2" index="0"]
 
+modulate = Color( 0, 0.601562, 1, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -89,7 +96,7 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 [node name="P3" type="Container" parent="." index="2"]
 
@@ -109,6 +116,7 @@ size_flags_vertical = 1
 
 [node name="score" type="Label" parent="P3" index="0"]
 
+modulate = Color( 0, 1, 0.109375, 1 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -126,6 +134,6 @@ uppercase = true
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+_sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
 

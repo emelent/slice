@@ -24,6 +24,7 @@ var moving_right = false
 var hurting = false
 var gravity_multiplier = 1
 var dead = false
+var facing = 1
 
 onready var Animator = $Animator
 onready var Pivot = $Pivot
@@ -49,7 +50,7 @@ func __face_correct_dir():
 		Pivot.scale.x = -1
 	elif moving_right and Pivot.scale.x  == -1:
 		Pivot.scale.x = 1
-
+	facing = Pivot.scale.x
 # apply gravity
 func __apply_gravity(dt):
 	if gravity_on:
