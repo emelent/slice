@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 717.97 )
 
-[node name="Wrap" type="Node2D"]
+[node name="HorizontalWrap" type="Node2D"]
 
 script = ExtResource( 1 )
 __meta__ = {

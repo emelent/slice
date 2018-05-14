@@ -5,10 +5,11 @@
 [ext_resource path="res://sprites/CloudsFront.png" type="Texture" id=3]
 [ext_resource path="res://tilemaps/vertigo.tmx" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/Wrap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/HorizontalWrap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/DeathZone.tscn" type="PackedScene" id=8]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 
 resource_name = "auto"
 length = 16.0
@@ -39,11 +40,6 @@ tracks/1/keys = {
 "values": [ Vector2( 504.693, 298.026 ), Vector2( 581.171, 298.026 ), Vector2( 583.289, 298.026 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 1195.24, 43.832 )
-
 [node name="VertigoLevel" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
@@ -51,6 +47,7 @@ preset_player = false
 
 [node name="background" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
 modulate = Color( 1, 0.519531, 0.519531, 1 )
 _sections_unfolded = [ "Visibility" ]
 
@@ -75,7 +72,7 @@ autoplay = "auto"
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
-anims/auto = SubResource( 2 )
+anims/auto = SubResource( 1 )
 blend_times = [  ]
 
 [node name="vertigo" parent="." index="1" instance=ExtResource( 4 )]
@@ -85,8 +82,6 @@ position = Vector2( 0, 2.33868 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Players" type="Node2D" parent="." index="2"]
-
-editor/display_folded = true
 
 [node name="Player1" parent="Players" index="0" instance=ExtResource( 5 )]
 
@@ -108,6 +103,8 @@ player_num = 3
 [node name="Wrap" parent="." index="3" instance=ExtResource( 6 )]
 
 [node name="SpawnPoints" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
 
 [node name="Spawn1" type="Position2D" parent="SpawnPoints" index="0"]
 
@@ -183,26 +180,7 @@ position = Vector2( 338.374, 33.0595 )
 
 [node name="HUD" parent="." index="5" instance=ExtResource( 7 )]
 
-[node name="DeathZone" type="Area2D" parent="." index="6" groups=[
-"attacks",
-"deathzone",
-]]
-
-position = Vector2( 481.134, 658.944 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" index="0"]
-
-shape = SubResource( 1 )
+[node name="DeathZone" parent="." index="6" instance=ExtResource( 8 )]
 
 
 [editable path="vertigo"]

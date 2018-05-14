@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Drop Sword-SoundBible.com-768774345.wav-a3bfa50fd1926ed9c33b46959d3d8072.sample"
+
+[deps]
+
+source_file="res://sounds/Drop Sword-SoundBible.com-768774345.wav"
+source_md5="086f1f64c663ea1631c477100c086793"
+
+dest_files=[ "res://.import/Drop Sword-SoundBible.com-768774345.wav-a3bfa50fd1926ed9c33b46959d3d8072.sample" ]
+dest_md5="cfa2a9a433464c3cac088033bc100cbe"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

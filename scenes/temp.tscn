@@ -1,0 +1,458 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/temp.png" type="Texture" id=1]
+[ext_resource path="res://shaders/alpha.shader" type="Shader" id=2]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/HorizontalWrap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/DeathZone.tscn" type="PackedScene" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/alpha = 0.451
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = ExtResource( 2 )
+shader_param/alpha = 0.571
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.3243, 7.91366 )
+
+[node name="TempLevel" type="Node2D"]
+
+[node name="sky" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="temp5" type="Sprite" parent="sky" index="0"]
+
+modulate = Color( 0.430344, 0.763216, 0.925781, 1 )
+position = Vector2( 513.236, 298.754 )
+scale = Vector2( 66.9937, 39.994 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="clouds" type="Node2D" parent="sky" index="1"]
+
+editor/display_folded = true
+material = SubResource( 1 )
+_sections_unfolded = [ "Material" ]
+
+[node name="cloud2" type="Node2D" parent="sky/clouds" index="0"]
+
+editor/display_folded = true
+use_parent_material = true
+
+[node name="cloud3" type="Sprite" parent="sky/clouds/cloud2" index="0"]
+
+use_parent_material = true
+position = Vector2( 596.451, 212.711 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud4" type="Sprite" parent="sky/clouds/cloud2" index="1"]
+
+use_parent_material = true
+position = Vector2( 600.117, 174.635 )
+scale = Vector2( 5.95703, 2.29117 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud5" type="Sprite" parent="sky/clouds/cloud2" index="2"]
+
+use_parent_material = true
+position = Vector2( 594.618, 250.286 )
+scale = Vector2( 5.95703, 2.29117 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud1" type="Node2D" parent="sky/clouds" index="1"]
+
+editor/display_folded = true
+use_parent_material = true
+
+[node name="cloud1" type="Sprite" parent="sky/clouds/cloud1" index="0"]
+
+use_parent_material = true
+position = Vector2( 275.687, 83.2363 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud2" type="Sprite" parent="sky/clouds/cloud1" index="1"]
+
+use_parent_material = true
+position = Vector2( 338.007, 120.231 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud4" type="Node2D" parent="sky/clouds" index="2"]
+
+editor/display_folded = true
+use_parent_material = true
+position = Vector2( -139.043, 355.693 )
+
+[node name="cloud1" type="Sprite" parent="sky/clouds/cloud4" index="0"]
+
+use_parent_material = true
+position = Vector2( 395.329, -18.5436 )
+scale = Vector2( 10.9976, 8.25688 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud2" type="Sprite" parent="sky/clouds/cloud4" index="1"]
+
+use_parent_material = true
+position = Vector2( 264.235, -12.3448 )
+scale = Vector2( 5.41387, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud3" type="Sprite" parent="sky/clouds/cloud4" index="2"]
+
+use_parent_material = true
+position = Vector2( 527.154, -15.5784 )
+scale = Vector2( 5.41387, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud3" type="Node2D" parent="sky/clouds" index="3"]
+
+editor/display_folded = true
+use_parent_material = true
+position = Vector2( 420.079, 329.928 )
+
+[node name="cloud1" type="Sprite" parent="sky/clouds/cloud3" index="0"]
+
+use_parent_material = true
+position = Vector2( 310.513, 39.8306 )
+scale = Vector2( 10.9976, 4.16557 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud2" type="Sprite" parent="sky/clouds/cloud3" index="1"]
+
+use_parent_material = true
+position = Vector2( 421.656, 92.0716 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud3" type="Sprite" parent="sky/clouds/cloud3" index="2"]
+
+use_parent_material = true
+position = Vector2( 245.842, 92.4229 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="bg" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+visible = false
+material = SubResource( 2 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="temp5" type="Sprite" parent="bg" index="0"]
+
+modulate = Color( 0.313477, 0.383682, 0.417969, 1 )
+use_parent_material = true
+position = Vector2( 94.3869, 444.23 )
+scale = Vector2( 8.73604, 10.0678 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+
+[node name="temp6" type="Sprite" parent="bg" index="1"]
+
+modulate = Color( 0.313477, 0.383682, 0.417969, 1 )
+use_parent_material = true
+position = Vector2( 376.759, 334.313 )
+scale = Vector2( 15.132, 10.0678 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+
+[node name="temp7" type="Sprite" parent="bg" index="2"]
+
+modulate = Color( 0.313477, 0.383682, 0.417969, 1 )
+use_parent_material = true
+position = Vector2( 810.74, 523.825 )
+scale = Vector2( 15.132, 10.0678 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+
+[node name="temp8" type="Sprite" parent="bg" index="3"]
+
+modulate = Color( 0.313477, 0.383682, 0.417969, 1 )
+use_parent_material = true
+position = Vector2( 926.341, 266.089 )
+scale = Vector2( 15.132, 10.0678 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
+
+[node name="main" type="Node2D" parent="." index="2"]
+
+modulate = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="temp" type="Sprite" parent="main" index="0"]
+
+editor/display_folded = true
+position = Vector2( 314.212, 477.109 )
+scale = Vector2( 5.89239, 12.1815 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/temp" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/temp/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="temp2" type="Sprite" parent="main" index="1"]
+
+editor/display_folded = true
+position = Vector2( 697.664, 434.503 )
+scale = Vector2( 5.89239, 12.1815 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/temp2" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/temp2/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="temp3" type="Sprite" parent="main" index="2"]
+
+editor/display_folded = true
+position = Vector2( 111.835, 320.381 )
+scale = Vector2( 5.89239, 12.1815 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/temp3" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/temp3/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="temp4" type="Sprite" parent="main" index="3"]
+
+editor/display_folded = true
+position = Vector2( 512.024, 273.21 )
+scale = Vector2( 5.89239, 12.1815 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/temp4" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/temp4/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="temp5" type="Sprite" parent="main" index="4"]
+
+position = Vector2( 951.776, 391.898 )
+scale = Vector2( 5.89239, 12.1815 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="main/temp5" index="0"]
+
+editor/display_folded = true
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="main/temp5/StaticBody2D" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+position = Vector2( 106.449, 47.083 )
+
+[node name="Pivot" parent="Player" index="0"]
+
+editor/display_folded = true
+
+[node name="HitBox" parent="Player" index="1"]
+
+editor/display_folded = true
+
+[node name="fg" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="clouds2" type="Node2D" parent="fg" index="0"]
+
+material = SubResource( 1 )
+_sections_unfolded = [ "Material" ]
+
+[node name="cloud1" type="Node2D" parent="fg/clouds2" index="0"]
+
+editor/display_folded = true
+use_parent_material = true
+position = Vector2( -94.1661, 423.747 )
+
+[node name="cloud1" type="Sprite" parent="fg/clouds2/cloud1" index="0"]
+
+use_parent_material = true
+position = Vector2( 275.687, 83.2363 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud2" type="Sprite" parent="fg/clouds2/cloud1" index="1"]
+
+use_parent_material = true
+position = Vector2( 338.007, 120.231 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud3" type="Node2D" parent="fg/clouds2" index="1"]
+
+editor/display_folded = true
+use_parent_material = true
+position = Vector2( 485.585, 198.915 )
+
+[node name="cloud1" type="Sprite" parent="fg/clouds2/cloud3" index="0"]
+
+use_parent_material = true
+position = Vector2( 310.513, 39.8306 )
+scale = Vector2( 10.9976, 4.16557 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud2" type="Sprite" parent="fg/clouds2/cloud3" index="1"]
+
+use_parent_material = true
+position = Vector2( 421.656, 92.0716 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="cloud3" type="Sprite" parent="fg/clouds2/cloud3" index="2"]
+
+use_parent_material = true
+position = Vector2( 245.842, 92.4229 )
+scale = Vector2( 10.9976, 2.40572 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Material", "Transform", "Visibility" ]
+
+[node name="Wrap" parent="." index="5" instance=ExtResource( 4 )]
+
+[node name="DeathZone" parent="." index="6" instance=ExtResource( 5 )]
+
+
+[editable path="Player"]

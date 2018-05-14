@@ -36,7 +36,6 @@ func get_random_spawn_point():
 	return point.global_position
 
 func kill_player(player):
-	if player.immortal: return
 	player.set_spawn_location(get_random_spawn_point())
 	player.kill()
 

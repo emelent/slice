@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/temp.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.06348, 8.08323 )
+
+[node name="DemoTiles" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 1 )
+hframes = 8
+
+[node name="Sprite2" type="Sprite" parent="." index="1"]
+
+position = Vector2( 26, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 1
+
+[node name="Sprite3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 52, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 2
+
+[node name="Sprite4" type="Sprite" parent="." index="3"]
+
+position = Vector2( 78, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite4" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite4/StaticBody2D" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="Sprite5" type="Sprite" parent="." index="4"]
+
+position = Vector2( 104, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 4
+
+[node name="Sprite6" type="Sprite" parent="." index="5"]
+
+position = Vector2( 130, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 5
+
+[node name="Sprite7" type="Sprite" parent="." index="6"]
+
+position = Vector2( 156, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 6
+
+[node name="Sprite8" type="Sprite" parent="." index="7"]
+
+position = Vector2( 182, 0 )
+texture = ExtResource( 1 )
+hframes = 8
+frame = 7
+
+

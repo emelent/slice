@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/VerticalWrap.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 660.948, 10 )
+
+[node name="VerticalWrap" type="Node2D"]
+
+script = ExtResource( 1 )
+offset = 0
+
+[node name="TopWrap" type="Area2D" parent="." index="0" groups=[
+"wrappers",
+]]
+
+editor/display_folded = true
+position = Vector2( 541.195, -11.5776 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWrap" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="BottomWrap" type="Area2D" parent="." index="1" groups=[
+"wrappers",
+]]
+
+editor/display_folded = true
+position = Vector2( 540.037, 613.392 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWrap" index="0"]
+
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="TopWrap" to="." method="_on_TopWrap_area_entered"]
+
+[connection signal="area_entered" from="BottomWrap" to="." method="_on_BottomWrap_area_entered"]
+
+
