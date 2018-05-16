@@ -7,10 +7,10 @@ path="res://.import/vertigo.tmx-9b59072ea021ee1b7f0ecd166eee41d2.scn"
 [deps]
 
 source_file="res://tilemaps/vertigo.tmx"
-source_md5="7c36d62a7ce97ba1d5edfa08f463655d"
+source_md5="527cbd8616677e676ca65dd5a6bbef8e"
 
 dest_files=[ "res://.import/vertigo.tmx-9b59072ea021ee1b7f0ecd166eee41d2.scn" ]
-dest_md5="9f233e8e88d2e9359ab46f35f0f7db75"
+dest_md5="d98b37264a356911424140bf4f2f2c82"
 
 [params]
 

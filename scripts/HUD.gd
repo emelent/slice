@@ -15,5 +15,7 @@ func _ready():
 
 func update_score(stats):
 	p1_score.text =  str(stats['p1_']['kills']) + ' / ' + str(stats['p1_']['deaths'])
-	p2_score.text =  str(stats['p2_']['kills']) + ' / ' + str(stats['p2_']['deaths'])
-	p3_score.text =  str(stats['p3_']['kills']) + ' / ' + str(stats['p3_']['deaths'])
+	if GameManager.num_players > 1:
+		p2_score.text =  str(stats['p2_']['kills']) + ' / ' + str(stats['p2_']['deaths'])
+	if GameManager.num_players > 2:
+		p3_score.text =  str(stats['p3_']['kills']) + ' / ' + str(stats['p3_']['deaths'])

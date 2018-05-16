@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
-[ext_resource path="res://sprites/CloudsBack.png" type="Texture" id=2]
-[ext_resource path="res://sprites/CloudsFront.png" type="Texture" id=3]
-[ext_resource path="res://tilemaps/vertigo.tmx" type="PackedScene" id=4]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/CloudsBack.png" type="Texture" id=3]
+[ext_resource path="res://sprites/CloudsFront.png" type="Texture" id=4]
+[ext_resource path="res://tilemaps/vertigo.tmx" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HorizontalWrap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/DeathZone.tscn" type="PackedScene" id=8]
@@ -40,10 +40,12 @@ tracks/1/keys = {
 "values": [ Vector2( 504.693, 298.026 ), Vector2( 581.171, 298.026 ), Vector2( 583.289, 298.026 ) ]
 }
 
-[node name="VertigoLevel" type="Node2D" index="0"]
+[node name="VertigoLevel" type="Node2D"]
 
 script = ExtResource( 1 )
-preset_player = false
+num_players = -1
+spawn_players = true
+Player = ExtResource( 2 )
 
 [node name="background" type="Node2D" parent="." index="0"]
 
@@ -55,14 +57,14 @@ _sections_unfolded = [ "Visibility" ]
 
 position = Vector2( 560.922, 298.026 )
 scale = Vector2( 2.42294, 1.95713 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CloudsFront" type="Sprite" parent="background" index="1"]
 
 position = Vector2( 512.599, 298.026 )
 scale = Vector2( 2.43319, 1.95713 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="background" index="2"]
@@ -75,7 +77,7 @@ playback_speed = 1.0
 anims/auto = SubResource( 1 )
 blend_times = [  ]
 
-[node name="vertigo" parent="." index="1" instance=ExtResource( 4 )]
+[node name="vertigo" parent="." index="1" instance=ExtResource( 5 )]
 
 editor/display_folded = true
 position = Vector2( 0, 2.33868 )
@@ -83,22 +85,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Players" type="Node2D" parent="." index="2"]
 
-[node name="Player1" parent="Players" index="0" instance=ExtResource( 5 )]
-
-position = Vector2( 216.884, 102.35 )
-immortal = false
-
-[node name="Player2" parent="Players" index="1" instance=ExtResource( 5 )]
-
-position = Vector2( 216.884, 102.35 )
-immortal = false
-player_num = 2
-
-[node name="Player3" parent="Players" index="2" instance=ExtResource( 5 )]
-
-position = Vector2( 216.884, 102.35 )
-immortal = false
-player_num = 3
+_sections_unfolded = [ "Transform" ]
 
 [node name="Wrap" parent="." index="3" instance=ExtResource( 6 )]
 

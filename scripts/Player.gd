@@ -2,7 +2,7 @@ extends 'Character.gd'
 
 
 export var death_sound = 'pop'
-export (int, 1, 3) var player_num = 1
+export (int, 1, 3) var player_number = 1
 export var max_jumps = 2
 export var jump_speed = 400
 export (float, 0.0, 1.0) var wall_slide_friction = 0
@@ -33,7 +33,7 @@ onready var ColShape = $CollisionShape2D
 
 func _ready():
 	level = get_tree().current_scene
-	character_name = 'p' + str(player_num) + '_'
+	character_name = 'p' + str(player_number) + '_'
 	Sprite.self_modulate = Color(OUTLINE_COLORS[character_name])
 
 
@@ -84,7 +84,6 @@ func __movement_input():
 	var moving = moving_left or moving_right
 	wall_hang = false
 	gravity_multiplier = 1
-
 	if moving:
 		if is_on_floor():
 			anim_play('run')
