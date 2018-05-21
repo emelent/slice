@@ -13,7 +13,8 @@ var wrapCount = 0
 
 
 func _ready():
-	AudioManager.play(spawn_sound)
+	if spawn_sound != '':
+		AudioManager.play(spawn_sound)
 
 func _physics_process(delta):
 	position += direction.normalized() * speed * delta
@@ -29,6 +30,7 @@ func __on_bullet_area_entered(area):
 		var slicer = area.attacker
 		direction = Vector2(1, 0) * slicer.facing
 		AudioManager.play(rebound_sound)
+		attacker = slicer
 		return
 
 	if area.is_in_group('wrappers'):

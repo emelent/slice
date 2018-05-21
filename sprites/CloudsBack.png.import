@@ -10,7 +10,7 @@ source_file="res://sprites/CloudsBack.png"
 source_md5="f926d2275287fce9479b10cf53523e05"
 
 dest_files=[ "res://.import/CloudsBack.png-3e244f3c324f2764e487fb96f6eb5929.stex" ]
-dest_md5="fc7927b6c00c46acd5ddd21961ab04a3"
+dest_md5="973efd9291ed5b26e32af6f7c86018cd"
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

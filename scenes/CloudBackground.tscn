@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://shaders/scroll.shader" type="Shader" id=1]
+[ext_resource path="res://sprites/CloudsBack.png" type="Texture" id=2]
+[ext_resource path="res://sprites/CloudsFront.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/speed = 0.003
+_sections_unfolded = [ "shader_param" ]
+
+[sub_resource type="ShaderMaterial" id=2]
+
+render_priority = 0
+shader = ExtResource( 1 )
+shader_param/speed = 0.009
+_sections_unfolded = [ "shader_param" ]
+
+[node name="background" type="Node2D"]
+
+modulate = Color( 1, 0.867188, 0.867188, 1 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="CloudsBack" type="Sprite" parent="." index="0"]
+
+material = SubResource( 1 )
+position = Vector2( 510.288, 305.851 )
+scale = Vector2( 2.1363, 1.90822 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="CloudsFront" type="Sprite" parent="." index="1"]
+
+material = SubResource( 2 )
+position = Vector2( 508.938, 305.539 )
+scale = Vector2( 2.14158, 1.91017 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Transform" ]
+
+

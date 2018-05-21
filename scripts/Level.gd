@@ -2,8 +2,11 @@ extends Node2D
 
 
 export(int, -1, 3) var num_players = -1
+export var deactivate = [false, false, false]
 export var spawn_players = true
 export (PackedScene) var Player = preload('res://scenes/Player.tscn')
+
+onready var SlowMoTimer = $SlowMoTimer
 onready var Players = $Players
 onready var SpawnPoints = $SpawnPoints
 onready var HUD = $HUD
@@ -25,6 +28,8 @@ func _ready():
 
 func setup():
 	for i in range(num_players):
+		if deactivate[i]:
+			continue
 		var player = Player.instance()
 		player.player_number = i + 1
 		Players.add_child(player)
@@ -53,7 +58,15 @@ func kill_player(player):
 			stats[killer_name]['kills'] -= 1
 		else:
 			stats[killer_name]['kills'] += 1
+			start_slowmo()
 	stats[player.character_name]['deaths'] += 1
 	HUD.update_score(stats)
 
 
+func start_slowmo():
+	SlowMoTimer.start()
+	Engine.time_scale = 0.3
+
+
+func _on_SlowMoTimer_timeout():
+	Engine.time_scale = 1

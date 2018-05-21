@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Laser-SoundBible.com-602495617.wav-4961ae977f322fb704dea6f8f28983b4.sample"
+
+[deps]
+
+source_file="res://sounds/Laser-SoundBible.com-602495617.wav"
+source_md5="c6e1dc4f9bb8f71c5c73fb46eb8d4a8c"
+
+dest_files=[ "res://.import/Laser-SoundBible.com-602495617.wav-4961ae977f322fb704dea6f8f28983b4.sample" ]
+dest_md5="3ac624f576670355adf97a1ff5fecff6"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

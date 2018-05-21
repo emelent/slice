@@ -1,0 +1,191 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/CloudBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Turret.tscn" type="PackedScene" id=3]
+[ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=4]
+[ext_resource path="res://scenes/SpikeThing.tscn" type="PackedScene" id=5]
+
+[node name="Level" index="0" instance=ExtResource( 1 )]
+
+deactivate = [ false, false, false ]
+
+[node name="background" parent="." index="0" instance=ExtResource( 2 )]
+
+modulate = Color( 0.519531, 0.409943, 0.409943, 1 )
+
+[node name="Turret" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 288.683, 480.596 )
+wait_time = 1.5
+
+[node name="Turret3" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 797.188, 480.596 )
+scale = Vector2( -1, 1 )
+wait_time = 1.5
+
+[node name="Turret2" parent="." index="3" instance=ExtResource( 3 )]
+
+position = Vector2( 510.594, 1.5362 )
+rotation = 1.5708
+wait_time = 0.8
+
+[node name="Turret4" parent="." index="4" instance=ExtResource( 3 )]
+
+position = Vector2( 273.889, 96.3184 )
+rotation = 1.5708
+wait_time = 2.0
+
+[node name="Turret5" parent="." index="5" instance=ExtResource( 3 )]
+
+position = Vector2( 720.679, 96.3184 )
+rotation = 1.5708
+wait_time = 2.0
+
+[node name="Platform" type="TileMap" parent="." index="6"]
+
+modulate = Color( 0.0546875, 1, 0.822754, 1 )
+scale = Vector2( 0.5, 0.5 )
+mode = 0
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 64, 64 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65536, 0, 196608, -65535, 0, 196609, -65534, 0, 196609, -65533, 0, 196609, -65532, 0, 196609, -65531, 0, 196609, -65530, 0, 196609, -65529, 0, 196609, -65528, 0, 196609, -65527, 0, 196609, -65526, 0, 196609, -65525, 0, 196609, -65524, 0, 196609, -65523, 0, 196609, -65522, 0, 196609, -65521, 0, 196609, -65520, 0, 196609, -65519, 0, 196609, -65518, 0, 196609, -65517, 0, 196609, -65516, 0, 196609, -65515, 0, 196609, -65514, 0, 196609, -65513, 0, 196609, -65512, 0, 196609, -65511, 0, 196609, -65510, 0, 196609, -65509, 0, 196609, -65508, 0, 196609, -65507, 0, 196609, -65506, 0, 196609, -65505, 0, 196609, -65504, 0, 196610, 131079, 0, 196608, 131080, 0, 196609, 131081, 0, 196610, 131093, 0, 196608, 131094, 0, 196609, 131095, 0, 196610, 196621, 0, 1, 196622, 0, 2, 196625, 0, 1, 196626, 0, 2, 262157, 0, 65537, 262158, 0, 65538, 262161, 0, 65537, 262162, 0, 65538, 393219, 0, 1, 393220, 0, 65536, 393221, 0, 2, 393226, 0, 1, 393227, 0, 65536, 393228, 0, 65536, 393229, 0, 2, 393234, 0, 1, 393235, 0, 65536, 393236, 0, 65536, 393237, 0, 2, 393243, 0, 1, 393244, 0, 65536, 393245, 0, 2, 458755, 0, 65537, 458756, 0, 131072, 458757, 0, 65538, 458762, 0, 65537, 458763, 0, 131072, 458764, 0, 131072, 458765, 0, 65547, 458766, 0, 7, 458769, 0, 6, 458770, 0, 65544, 458771, 0, 131072, 458772, 0, 131072, 458773, 0, 65538, 458779, 0, 65537, 458780, 0, 131072, 458781, 0, 65538, 524302, 0, 131077, 524305, 0, 131077, 655366, 0, 196608, 655367, 0, 196609, 655368, 0, 196609, 655369, 0, 196609, 655370, 0, 196610, 655374, 0, 5, 655377, 0, 5, 655382, 0, 196608, 655383, 0, 196609, 655384, 0, 196609, 655385, 0, 196609, 655386, 0, 196609, 655387, 0, 196610, 720910, 0, 131077, 720913, 0, 131077, 917509, 0, 1, 917510, 0, 65536, 917511, 0, 65536, 917512, 0, 2, 917519, 0, 1, 917520, 0, 65536, 917521, 0, 65536, 917522, 0, 65536, 917523, 0, 2, 917529, 0, 1, 917530, 0, 65536, 917531, 0, 65536, 917532, 0, 2, 983044, 0, 196608, 983045, 0, 65544, 983046, 0, 131072, 983047, 0, 131072, 983048, 0, 65538, 983055, 0, 65537, 983056, 0, 131072, 983057, 0, 131072, 983058, 0, 131072, 983059, 0, 65538, 983065, 0, 65537, 983066, 0, 131072, 983067, 0, 131072, 983068, 0, 65547, 983069, 0, 196610, 1179651, 0, 196608, 1179652, 0, 196609, 1179653, 0, 196609, 1179654, 0, 196609, 1179655, 0, 196609, 1179656, 0, 196610, 1179659, 0, 196608, 1179660, 0, 196609, 1179661, 0, 196609, 1179662, 0, 196609, 1179663, 0, 196609, 1179664, 0, 196609, 1179665, 0, 196609, 1179666, 0, 196609, 1179667, 0, 196609, 1179668, 0, 196609, 1179669, 0, 196609, 1179670, 0, 196610, 1179673, 0, 196608, 1179674, 0, 196609, 1179675, 0, 196609, 1179676, 0, 196609, 1179677, 0, 196610 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Spikes" type="Node2D" parent="." index="7"]
+
+editor/display_folded = true
+
+[node name="Spike" parent="Spikes" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 79.4244, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike2" parent="Spikes" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 46.5591, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike3" parent="Spikes" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 13.6938, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike4" parent="Spikes" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 303.613, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike5" parent="Spikes" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 336.48, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike6" parent="Spikes" index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 752.021, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike7" parent="Spikes" index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 784.889, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike8" parent="Spikes" index="7" instance=ExtResource( 5 )]
+
+position = Vector2( 976.617, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spike9" parent="Spikes" index="8" instance=ExtResource( 5 )]
+
+position = Vector2( 1009.48, 591.756 )
+scale = Vector2( 2, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="SpawnPoints" parent="." index="9"]
+
+editor/display_folded = true
+
+[node name="Position2D" type="Position2D" parent="SpawnPoints" index="0"]
+
+position = Vector2( 336.739, 302.037 )
+
+[node name="Position2D2" type="Position2D" parent="SpawnPoints" index="1"]
+
+position = Vector2( 566.418, 411.754 )
+
+[node name="Position2D12" type="Position2D" parent="SpawnPoints" index="2"]
+
+position = Vector2( 256.933, 394.486 )
+
+[node name="Position2D3" type="Position2D" parent="SpawnPoints" index="3"]
+
+position = Vector2( 141.956, 140.135 )
+
+[node name="Position2D4" type="Position2D" parent="SpawnPoints" index="4"]
+
+position = Vector2( 401.709, 132.962 )
+
+[node name="Position2D5" type="Position2D" parent="SpawnPoints" index="5"]
+
+position = Vector2( 648.718, 140.135 )
+
+[node name="Position2D6" type="Position2D" parent="SpawnPoints" index="6"]
+
+position = Vector2( 913.255, 136.947 )
+
+[node name="Position2D7" type="Position2D" parent="SpawnPoints" index="7"]
+
+position = Vector2( 725.211, 17.4279 )
+
+[node name="Position2D8" type="Position2D" parent="SpawnPoints" index="8"]
+
+position = Vector2( 271.037, 25.3958 )
+
+[node name="Position2D9" type="Position2D" parent="SpawnPoints" index="9"]
+
+position = Vector2( 812.858, 246.905 )
+
+[node name="Position2D10" type="Position2D" parent="SpawnPoints" index="10"]
+
+position = Vector2( 932.378, 355.27 )
+
+[node name="Position2D11" type="Position2D" parent="SpawnPoints" index="11"]
+
+position = Vector2( 148.33, 363.238 )
+
+[node name="SlowMoTimer" type="Timer" parent="." index="12"]
+
+process_mode = 1
+wait_time = 0.4
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="SlowMoTimer" to="." method="_on_SlowMoTimer_timeout"]
+
+

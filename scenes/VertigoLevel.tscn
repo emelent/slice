@@ -1,44 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sprites/CloudsBack.png" type="Texture" id=3]
-[ext_resource path="res://sprites/CloudsFront.png" type="Texture" id=4]
-[ext_resource path="res://tilemaps/vertigo.tmx" type="PackedScene" id=5]
-[ext_resource path="res://scenes/HorizontalWrap.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/DeathZone.tscn" type="PackedScene" id=8]
-
-[sub_resource type="Animation" id=1]
-
-resource_name = "auto"
-length = 16.0
-loop = true
-step = 4.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("CloudsFront:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4, 8, 12 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 555.136, 298.026 ), Vector2( 497.281, 298.026 ), Vector2( 450.996, 298.026 ), Vector2( 497.281, 298.026 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("CloudsBack:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 4, 12 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 504.693, 298.026 ), Vector2( 581.171, 298.026 ), Vector2( 583.289, 298.026 ) ]
-}
+[ext_resource path="res://scenes/CloudBackground.tscn" type="PackedScene" id=3]
+[ext_resource path="res://tilemaps/vertigo.tmx" type="PackedScene" id=4]
+[ext_resource path="res://scenes/HorizontalWrap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/DeathZone.tscn" type="PackedScene" id=7]
 
 [node name="VertigoLevel" type="Node2D"]
 
@@ -47,37 +15,9 @@ num_players = -1
 spawn_players = true
 Player = ExtResource( 2 )
 
-[node name="background" type="Node2D" parent="." index="0"]
+[node name="background" parent="." index="0" instance=ExtResource( 3 )]
 
-editor/display_folded = true
-modulate = Color( 1, 0.519531, 0.519531, 1 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="CloudsBack" type="Sprite" parent="background" index="0"]
-
-position = Vector2( 560.922, 298.026 )
-scale = Vector2( 2.42294, 1.95713 )
-texture = ExtResource( 3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CloudsFront" type="Sprite" parent="background" index="1"]
-
-position = Vector2( 512.599, 298.026 )
-scale = Vector2( 2.43319, 1.95713 )
-texture = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="background" index="2"]
-
-root_node = NodePath("..")
-autoplay = "auto"
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/auto = SubResource( 1 )
-blend_times = [  ]
-
-[node name="vertigo" parent="." index="1" instance=ExtResource( 5 )]
+[node name="vertigo" parent="." index="1" instance=ExtResource( 4 )]
 
 editor/display_folded = true
 position = Vector2( 0, 2.33868 )
@@ -87,7 +27,7 @@ _sections_unfolded = [ "Transform" ]
 
 _sections_unfolded = [ "Transform" ]
 
-[node name="Wrap" parent="." index="3" instance=ExtResource( 6 )]
+[node name="Wrap" parent="." index="3" instance=ExtResource( 5 )]
 
 [node name="SpawnPoints" type="Node2D" parent="." index="4"]
 
@@ -165,9 +105,9 @@ position = Vector2( 785.65, 83.6211 )
 
 position = Vector2( 338.374, 33.0595 )
 
-[node name="HUD" parent="." index="5" instance=ExtResource( 7 )]
+[node name="HUD" parent="." index="5" instance=ExtResource( 6 )]
 
-[node name="DeathZone" parent="." index="6" instance=ExtResource( 8 )]
+[node name="DeathZone" parent="." index="6" instance=ExtResource( 7 )]
 
 
 [editable path="vertigo"]

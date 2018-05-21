@@ -10,7 +10,7 @@ source_file="res://sprites/bg.png"
 source_md5="2f862fa489bab59a923671751d8d81ce"
 
 dest_files=[ "res://.import/bg.png-c437bba7722705cd75f308560029cc1e.stex" ]
-dest_md5="260d2724793311d89d7aa02e2ce001a2"
+dest_md5="5c6be47b231dc16e8b493b14a526b5d5"
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

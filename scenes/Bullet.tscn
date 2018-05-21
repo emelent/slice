@@ -1,10 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Bullet.gd" type="Script" id=1]
 [ext_resource path="res://animations/effects/bullet_hit.anim" type="Animation" id=2]
 [ext_resource path="res://sprites/effects.png" type="Texture" id=3]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="ShaderMaterial" id=1]
+
+render_priority = 0
+
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.13008, 8.11727 )
@@ -23,6 +27,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -44,16 +49,18 @@ blend_times = [  ]
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+material = SubResource( 1 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 vframes = 9
 hframes = 6
 frame = 44
-_sections_unfolded = [ "Animation", "Transform" ]
+_sections_unfolded = [ "Animation", "Material", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
-shape = SubResource( 1 )
+visible = false
+shape = SubResource( 2 )
 
 [connection signal="area_entered" from="." to="." method="__on_bullet_area_entered"]
 

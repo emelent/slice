@@ -10,7 +10,7 @@ source_file="res://sprites/displacement.png"
 source_md5="5daa8f863ac75b55b232011998e7c642"
 
 dest_files=[ "res://.import/displacement.png-ecf12816a8ed7e9fd7a94b1a203ff082.stex" ]
-dest_md5="2c94d15fd561a6e89fce04831468efce"
+dest_md5="668f32a2ca9628cb1db292f97bf228f7"
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

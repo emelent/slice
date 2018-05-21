@@ -10,7 +10,7 @@ source_file="res://sprites/CloudsFront.png"
 source_md5="c2fb403b0fbe176ae8e4c04a8a589409"
 
 dest_files=[ "res://.import/CloudsFront.png-33524f24d4755409f8d3e87d97c8543a.stex" ]
-dest_md5="36d0be4b0db79f779f297d38e6d54422"
+dest_md5="a87e92563982da6f55ba11a492da1184"
 
 [params]
 
@@ -18,7 +18,7 @@ compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

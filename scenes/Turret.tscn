@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/Turret.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/TurretBullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sprites/temp.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -30,19 +30,32 @@ wait_time = 2.0
 one_shot = false
 autostart = true
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="Sprite2" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 1.5, 1.5 )
+modulate = Color( 0.0976562, 0.087738, 0.087738, 1 )
+position = Vector2( 8.35824, 0 )
+scale = Vector2( 0.860759, 1.52378 )
 texture = ExtResource( 3 )
 hframes = 8
-frame = 1
-_sections_unfolded = [ "Animation", "Transform" ]
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
-[node name="FirePoint" type="Position2D" parent="." index="2"]
+[node name="Sprite" type="Sprite" parent="." index="2"]
 
-position = Vector2( 22.1033, 0 )
+self_modulate = Color( 0.175781, 0.175781, 0.175781, 1 )
+position = Vector2( -5.69304, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+hframes = 8
+frame = 3
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="FirePoint" type="Position2D" parent="." index="3"]
+
+visible = false
+position = Vector2( 25.6394, 7.62939e-06 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 visible = false
 shape = SubResource( 1 )

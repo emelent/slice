@@ -9,7 +9,7 @@
 
 render_priority = 0
 shader = ExtResource( 3 )
-shader_param/intensity = 29
+shader_param/intensity = 31
 shader_param/precision = 0.019
 shader_param/outline_color = Color( 1, 1, 1, 1 )
 _sections_unfolded = [ "shader_param" ]
@@ -194,7 +194,7 @@ tracks/0/keys = {
 "values": [ 11 ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "players",
 "mobile",
 ]]
