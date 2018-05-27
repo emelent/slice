@@ -18,7 +18,7 @@ func shoot():
 	var  right = Vector2(1.0, 0)
 	bullet.direction = right.rotated(rotation) * scale.x
 	bullet.global_position = FirePoint.global_position
-	get_tree().current_scene.add_child(bullet)
+	get_tree().current_scene.add_thing(bullet)
 
 
 func _on_Timer_timeout():

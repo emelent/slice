@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/CloudBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Turret.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DirtAutoTile.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/SpikeThing.tscn" type="PackedScene" id=5]
+[ext_resource path="res://shaders/shady_waves.shader" type="Shader" id=6]
 
-[node name="Level" index="0" instance=ExtResource( 1 )]
+[sub_resource type="ShaderMaterial" id=1]
 
-deactivate = [ false, false, false ]
+render_priority = 0
+shader = ExtResource( 6 )
+shader_param/center = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "shader_param" ]
+
+[node name="Level" instance=ExtResource( 1 )]
+
+deactivate = [ false, false, true ]
 
 [node name="background" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -185,6 +193,12 @@ process_mode = 1
 wait_time = 0.4
 one_shot = true
 autostart = false
+
+[node name="LevelEffect" parent="." index="14"]
+
+material = SubResource( 1 )
+margin_right = 1024.0
+margin_bottom = 600.0
 
 [connection signal="timeout" from="SlowMoTimer" to="." method="_on_SlowMoTimer_timeout"]
 

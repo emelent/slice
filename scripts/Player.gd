@@ -6,6 +6,7 @@ export (int, 1, 3) var player_number = 1
 export var max_jumps = 2
 export var jump_speed = 400
 export (float, 0.0, 1.0) var wall_slide_friction = 0
+export var max_bullets =  1
 
 const OUTLINE_COLORS = {
 	'p1_': '#ff629d',
@@ -24,6 +25,7 @@ var jumping = false
 var jump_count = 0
 var attacking = false
 var level
+var bullet_count
 
 onready var SlashPoint = $Pivot/SlashPoint
 onready var JumpPoint = $JumpPoint
@@ -35,6 +37,8 @@ func _ready():
 	level = get_tree().current_scene
 	character_name = 'p' + str(player_number) + '_'
 	Sprite.self_modulate = Color(OUTLINE_COLORS[character_name])
+	bullet_count = GameManager.num_players - 1
+
 
 
 
@@ -52,6 +56,7 @@ func _input(event):
 		shoot_attack()
 
 func _process(dt):
+	if Engine.time_scale < 1: return
 	if dead: return
 	__movement_input()
 
@@ -119,7 +124,7 @@ func jump():
 		effect.anim_effect = effect.JUMPING_DUST
 		effect.scale = Vector2(1.5, 1.5)
 		effect.global_position = JumpPoint.global_position
-		level.add_child(effect)
+		level.add_thing(effect)
 
 func reset():
 	motion = Vector2(0, 0)
@@ -130,6 +135,12 @@ func reset():
 	HitBoxShape.disabled = false
 	ColShape.disabled = false
 	anim_play('idle')
+	var effect = AnimatedEffect.instance()
+	effect.anim_effect = effect.RED_CLOUD
+	effect.global_position = global_position
+	effect.scale = Vector2(1.5, 1.5)
+	level.add_thing(effect)
+	AudioManager.play('spawn')
 
 func slash_attack():
 	anim_play('slash')
@@ -139,13 +150,16 @@ func slash_attack():
 	SlashPoint.add_child(slash)
 
 func shoot_attack():
+	if bullet_count < 1: return
 	anim_play('shoot')
 	attacking = true
 	var bullet = Bullet.instance()
 	bullet.direction = RIGHT * Pivot.scale.x
 	bullet.global_position = FirePoint.global_position
 	bullet.attacker = self
-	level.add_child(bullet)
+	level.add_thing(bullet)
+	bullet_count -= 1
+	level.update_bullet_count(self)
 
 
 func __on_kill():
@@ -173,5 +187,5 @@ func __on_hitbox_entered(area):
 	killer = area.attacker
 	var effect = Splat.instance()
 	effect.global_position = global_position
-	level.add_child(effect)
+	level.add_thing(effect)
 	level.kill_player(self)

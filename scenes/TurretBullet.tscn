@@ -16,6 +16,7 @@ _sections_unfolded = [ "shader_param" ]
 _sections_unfolded = [ "Material", "Visibility" ]
 maxWraps = 0
 spawn_sound = ""
+hit_sound = ""
 
 [node name="Sprite" parent="." index="1"]
 

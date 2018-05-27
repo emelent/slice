@@ -7,10 +7,10 @@ path="res://.import/effects.png-b9f41f42b55ad8862df2d751f09eeb4d.stex"
 [deps]
 
 source_file="res://sprites/effects.png"
-source_md5="d2e934997fd80129821064b709e74792"
+source_md5="915a971ccdef4322c14ca04d8e83d0fe"
 
 dest_files=[ "res://.import/effects.png-b9f41f42b55ad8862df2d751f09eeb4d.stex" ]
-dest_md5="3e1035639617272dfb6ee25406a69761"
+dest_md5="7a8015028138bf85b97235cc8bb7de2b"
 
 [params]
 

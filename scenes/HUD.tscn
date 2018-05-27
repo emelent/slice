@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://sprites/circle.png" type="Texture" id=2]
 
 [sub_resource type="Theme" id=1]
 
@@ -36,6 +37,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="P1" index="0"]
 
@@ -60,6 +64,14 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
+[node name="BulletIcon" type="Sprite" parent="P1" index="1"]
+
+self_modulate = Color( 0.992188, 0.906921, 0, 1 )
+position = Vector2( 40.8219, 6.10621 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
 [node name="P2" type="Container" parent="." index="1"]
 
 anchor_left = 0.0
@@ -75,6 +87,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="P2" index="0"]
 
@@ -98,14 +113,22 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
+[node name="BulletIcon" type="Sprite" parent="P2" index="1"]
+
+self_modulate = Color( 0.992188, 0.906921, 0, 1 )
+position = Vector2( 42.5312, 5.58855 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
 [node name="P3" type="Container" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 287.0
-margin_right = 327.0
+margin_left = 289.0
+margin_right = 329.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -113,6 +136,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="score" type="Label" parent="P3" index="0"]
 
@@ -135,5 +161,13 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Material", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
+
+[node name="BulletIcon" type="Sprite" parent="P3" index="1"]
+
+self_modulate = Color( 0.992188, 0.906921, 0, 1 )
+position = Vector2( 40.6754, 6.10621 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 

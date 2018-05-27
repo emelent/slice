@@ -11,18 +11,22 @@ var direction = Vector2()
 var offset = 50
 var wrapCount = 0
 
+onready var ColShape = $CollisionShape2D
 
 func _ready():
-	if spawn_sound != '':
+	if spawn_sound and spawn_sound != '':
 		AudioManager.play(spawn_sound)
 
 func _physics_process(delta):
 	position += direction.normalized() * speed * delta
 
+
 func bullet_hit():
 	direction = Vector2(0, 0)
 	$Animator.play('bullet_hit')
-	AudioManager.play(hit_sound)
+	ColShape.disabled = true
+	if  hit_sound and hit_sound != '':
+		AudioManager.play(hit_sound)
 
 func __on_bullet_area_entered(area):
 	if area.is_in_group('bullets'): return
