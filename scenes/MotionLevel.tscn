@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/CloudBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Another.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/Cruncher.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Turret.tscn" type="PackedScene" id=5]
+
+[node name="Level" index="0" instance=ExtResource( 1 )]
+
+[node name="background" parent="." index="1" instance=ExtResource( 2 )]
+
+modulate = Color( 0.119202, 0.161478, 0.242188, 1 )
+position = Vector2( 0, -2.17041 )
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+modulate = Color( 0.172775, 0.294621, 0.660156, 1 )
+scale = Vector2( 2, 2 )
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 327678, 0, 65539, 327679, 0, 65540, 262144, 0, 65540, 262145, 0, 65540, 262146, 0, 65540, 262147, 0, 65541, 262172, 0, 65539, 262173, 0, 65540, 262174, 0, 65540, 262175, 0, 65540, 262176, 0, 65540, 262177, 0, 65541, 393222, 0, 65539, 393223, 0, 65540, 393224, 0, 65540, 393225, 0, 4, 393238, 0, 4, 393239, 0, 65540, 393240, 0, 65540, 393241, 0, 65541, 458761, 0, 131078, 458774, 0, 131078, 655358, 0, 65539, 655359, 0, 65540, 589824, 0, 65540, 589825, 0, 65540, 589826, 0, 65540, 589827, 0, 65540, 589828, 0, 65541, 589833, 0, 4, 589846, 0, 4, 589851, 0, 65539, 589852, 0, 65540, 589853, 0, 65540, 589854, 0, 65540, 589855, 0, 65540, 589856, 0, 65540, 589857, 0, 65541, 851970, 0, 65539, 851971, 0, 65540, 851972, 0, 65540, 851973, 0, 4, 851974, 0, 65546, 851975, 0, 65544, 851976, 0, 4, 851980, 0, 65539, 851981, 0, 4, 851982, 0, 65544, 851983, 0, 65546, 851984, 0, 65544, 851985, 0, 65544, 851986, 0, 4, 851987, 0, 65541, 851991, 0, 4, 851992, 0, 65546, 851993, 0, 65546, 851994, 0, 4, 851995, 0, 65540, 851996, 0, 65541, 917509, 0, 4, 917510, 0, 4, 917511, 0, 4, 917512, 0, 4, 917517, 0, 4, 917518, 0, 4, 917519, 0, 4, 917520, 0, 4, 917521, 0, 4, 917522, 0, 4, 917527, 0, 4, 917528, 0, 4, 917529, 0, 4, 917530, 0, 4, 1245181, 0, 65539, 1245182, 0, 65540, 1245183, 0, 65540, 1179648, 0, 65540, 1179649, 0, 65540, 1179650, 0, 65540, 1179651, 0, 65540, 1179652, 0, 65540, 1179653, 0, 65540, 1179654, 0, 65540, 1179655, 0, 65540, 1179656, 0, 65540, 1179657, 0, 65540, 1179658, 0, 65540, 1179659, 0, 65540, 1179660, 0, 65540, 1179661, 0, 65540, 1179662, 0, 65540, 1179663, 0, 65540, 1179664, 0, 65540, 1179665, 0, 65540, 1179666, 0, 65540, 1179667, 0, 65540, 1179668, 0, 65540, 1179669, 0, 65540, 1179670, 0, 65540, 1179671, 0, 65540, 1179672, 0, 65540, 1179673, 0, 65540, 1179674, 0, 65540, 1179675, 0, 65540, 1179676, 0, 65540, 1179677, 0, 65540, 1179678, 0, 65540, 1179679, 0, 65540, 1179680, 0, 65540, 1179681, 0, 65540, 1179682, 0, 65541 )
+_sections_unfolded = [ "Cell", "Transform", "Visibility" ]
+
+[node name="Cruncher" parent="." index="3" instance=ExtResource( 4 )]
+
+_sections_unfolded = [ "Material", "Transform" ]
+
+[node name="Turrets" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="Turret" parent="Turrets" index="0" instance=ExtResource( 5 )]
+
+position = Vector2( 850.771, 8.70255 )
+rotation = 1.5708
+wait_time = 1.2
+
+[node name="Turret5" parent="Turrets" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 174.587, 8.70255 )
+rotation = 1.5708
+wait_time = 1.2
+
+[node name="Turret2" parent="Turrets" index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 508.059, 21.725 )
+rotation = 1.5708
+wait_time = 1.2
+
+[node name="Turret3" parent="Turrets" index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 353.548, 584.887 )
+rotation = -1.5708
+wait_time = 1.0
+
+[node name="Turret4" parent="Turrets" index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 679.76, 584.887 )
+rotation = -1.5708
+wait_time = 0.7
+
+[node name="SpawnPoints" parent="." index="5"]
+
+editor/display_folded = true
+
+[node name="Position2D" type="Position2D" parent="SpawnPoints" index="0"]
+
+position = Vector2( 64.4133, 104.672 )
+
+[node name="Position2D2" type="Position2D" parent="SpawnPoints" index="1"]
+
+position = Vector2( 264.363, 138.22 )
+
+[node name="Position2D3" type="Position2D" parent="SpawnPoints" index="2"]
+
+position = Vector2( 762.224, 130.169 )
+
+[node name="Position2D4" type="Position2D" parent="SpawnPoints" index="3"]
+
+position = Vector2( 976.935, 71.123 )
+
+[node name="Position2D5" type="Position2D" parent="SpawnPoints" index="4"]
+
+position = Vector2( 822.611, 330.118 )
+
+[node name="Position2D6" type="Position2D" parent="SpawnPoints" index="5"]
+
+position = Vector2( 221.421, 327.434 )
+
+[node name="Position2D7" type="Position2D" parent="SpawnPoints" index="6"]
+
+position = Vector2( 75.1488, 480.416 )
+
+[node name="Position2D8" type="Position2D" parent="SpawnPoints" index="7"]
+
+position = Vector2( 951.438, 471.022 )
+
+[node name="Position2D9" type="Position2D" parent="SpawnPoints" index="8"]
+
+position = Vector2( 513.964, 517.99 )
+
+

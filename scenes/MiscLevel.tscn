@@ -16,7 +16,7 @@ _sections_unfolded = [ "shader_param" ]
 
 [node name="Level" instance=ExtResource( 1 )]
 
-deactivate = [ false, false, true ]
+editor/display_folded = true
 
 [node name="background" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -187,19 +187,10 @@ position = Vector2( 932.378, 355.27 )
 
 position = Vector2( 148.33, 363.238 )
 
-[node name="SlowMoTimer" type="Timer" parent="." index="12"]
-
-process_mode = 1
-wait_time = 0.4
-one_shot = true
-autostart = false
-
-[node name="LevelEffect" parent="." index="14"]
+[node name="LevelEffect" parent="." index="13"]
 
 material = SubResource( 1 )
 margin_right = 1024.0
 margin_bottom = 600.0
-
-[connection signal="timeout" from="SlowMoTimer" to="." method="_on_SlowMoTimer_timeout"]
 
 

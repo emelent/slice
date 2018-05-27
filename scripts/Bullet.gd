@@ -6,7 +6,7 @@ export var spawn_sound = 'bullet_spawn'
 export var hit_sound = 'bullet_hit'
 export var rebound_sound = 'bullet_rebound'
 
-var attacker
+var attacker = null
 var direction = Vector2()
 var offset = 50
 var wrapCount = 0
@@ -33,6 +33,7 @@ func __on_bullet_area_entered(area):
 	if area.is_in_group('slashes'):
 		var slicer = area.attacker
 		direction = Vector2(1, 0) * slicer.facing
+		speed *= 1.05
 		AudioManager.play(rebound_sound)
 		attacker = slicer
 		return

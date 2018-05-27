@@ -21,6 +21,7 @@ _sections_unfolded = [ "shader_param" ]
 [node name="background" type="Node2D"]
 
 modulate = Color( 1, 0.867188, 0.867188, 1 )
+show_behind_parent = true
 _sections_unfolded = [ "Visibility" ]
 
 [node name="CloudsBack" type="Sprite" parent="." index="0"]

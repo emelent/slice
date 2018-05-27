@@ -23,11 +23,9 @@ func update_score(stats):
 	if stats.has('p1_'):
 		p1_score.text =  str(stats['p1_']['kills']) + ' / ' + str(stats['p1_']['deaths'])
 		p1_bullet_icon.visible = stats['p1_']['bullets'] > 0
-		print('p1_bullets: ', stats['p1_']['bullets'])
 	if stats.has('p2_'):
 		p2_score.text =  str(stats['p2_']['kills']) + ' / ' + str(stats['p2_']['deaths'])
 		p2_bullet_icon.visible = stats['p2_']['bullets'] > 0
-		print('p2_bullets: ', stats['p2_']['bullets'])
 	if stats.has('p3_'):
 		p3_score.text =  str(stats['p3_']['kills']) + ' / ' + str(stats['p3_']['deaths'])
 		p3_bullet_icon.visible = stats['p3_']['bullets'] > 0

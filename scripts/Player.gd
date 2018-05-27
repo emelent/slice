@@ -49,7 +49,7 @@ func _input(event):
 		jumping = true
 		jump_count += 1
 
-	if Input.is_action_just_pressed(character_name + 'b') and not attacking and not wall_hang:
+	elif Input.is_action_just_pressed(character_name + 'b') and not attacking and not wall_hang:
 		slash_attack()
 
 	elif Input.is_action_just_pressed(character_name + 'c') and not attacking and not wall_hang:
@@ -174,16 +174,17 @@ func _on_animation_finished(anim_name):
 		Sprite.self_modulate = Color(OUTLINE_COLORS[character_name])
 
 func __on_hitbox_entered(area):
-	if immortal: return
 	if area.is_in_group('deathzone'):
 		level.kill_player(self)
 		return
 
 	if not area.is_in_group('attacks'): return
+#	if area.is_in_group('bullets') and not area.attacker: return
+
 	if area.get_parent() == SlashPoint: return
 
-	if area.attacker:
-		print(character_name + ' hurt by ' + area.attacker.character_name)
+#	if area.attacker:
+#		print(character_name + ' hurt by ' + area.attacker.character_name)
 	killer = area.attacker
 	var effect = Splat.instance()
 	effect.global_position = global_position

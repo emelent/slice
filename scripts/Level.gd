@@ -58,6 +58,7 @@ func setup():
 
 
 func get_random_spawn_point():
+	if num_spawn_points == 0: return Vector2()
 	var i = randi() % num_spawn_points
 	var point = SpawnPoints.get_child(i)
 	return point.global_position
@@ -97,7 +98,7 @@ func start_slowmo(point):
 	SlowMoTimer.start()
 	Engine.time_scale = 0.3
 #	LevelEffect.visible = true
-	LevelEffect.material.set('shader_param/center', point)
+#	LevelEffect.material.set('shader_param/center', point)
 
 func _on_SlowMoTimer_timeout():
 	Engine.time_scale = 1
