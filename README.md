@@ -3,24 +3,26 @@ Just things happening to other things.. in Godot 3.
 
 It currently looks like a local multiplayer death match type of thing. 
 
-Player 1(Keyboard):
+# Player 1(Keyboard):
 
-  Left & Right Arrows - Movement
+    Movement        - Left & Right Arrows 
   
-  Z                   - Jump
+    Jump            - Z
   
-  X                   - Melee Attack
+    Melee Attack    - X
   
-  C                   - Shoot
+    Shoot           - C
   
   
-Player 2 - 4 (Joysticks, I'm gonna describe the mappings with a playstation joystick):
-
-  D-Pad or Left Stick - Movement
+# Player 2 - 4 (Joysticks):
   
-  X                   - Jump
+  I'm gonna describe the mappings with a playstation joystick
   
-  Square              - Melee Attack
+    Movement        - D-Pad or Left Stick
   
-  R1                  - Shoot
+    Jump            - X
+  
+    Melee Attack    - Square          
+  
+    Shoot           - R1
 
